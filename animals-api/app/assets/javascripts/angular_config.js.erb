@@ -1,0 +1,13 @@
+console.log("test")
+var app = angular.module('animalRescue', ['ui.router'])
+app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider){
+
+  $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: "<%= asset_path('static_pages/index.html') %>"
+    });
+
+  $urlRouterProvider.otherwise('/');
+
+}]);
