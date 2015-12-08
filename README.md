@@ -1,2 +1,3 @@
-# pet_rescue
-A website where shelters and rescues list their pets for adoption in Hong Kong. 
+# Hong Kong Pet Rescue
+
+A website where shelters and rescues can list their pets for adoption in Hong Kong.
