@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     resources :animals, only: [:index, :show]
 
-    resources :shelters, only: [:index, :show] do
+    resources :shelters, only: [:index, :show, :create, :update, :destroy] do
       resources :animals, only: [:index, :show, :new, :create]
     end
 

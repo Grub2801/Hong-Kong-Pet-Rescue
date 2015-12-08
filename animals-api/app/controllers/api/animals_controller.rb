@@ -12,13 +12,13 @@ module Api
     end
 
     def new
-      @animal = @shelter.Animals.new
+      animal = shelter.animals.new
     end
 
     def create
-      @animal = @shelter.Animals.new(animal_params)
+      animal = shelter.animals.new(animal_params)
 
-      if @animal.save
+      if animal.save
         render json: animal, status: 201, location: [:api, animal]
       else
         render json: animal, status: 201, location: [:api, animal]
@@ -27,7 +27,7 @@ module Api
 
 private
   def set_shelter
-    @shelter = Shelter.find(params[:shelter_id]) if params[:category_id]
+    shelter = Shelter.find(params[:shelter_id])
   end
 
   def animal_params

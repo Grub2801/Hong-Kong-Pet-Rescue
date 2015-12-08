@@ -1,5 +1,7 @@
 module Api
   class SheltersController < ApplicationController
+
+
     def index
       render json: Shelter.all
       # render json: {message: 'Resource not found'}
@@ -9,17 +11,28 @@ module Api
       render json: Shelter.find(params[:id])
     end
 
-    def new
-      @shelter = Shelter.new
+    def create
+      shelter = Shelter.new(shelter_params)
+      if shelter.save
+        render json: shelter, status: 201, location: [:api, shelter]
+      else
+        render json: shelter.errors, status: 422
+      end
     end
 
-    def create
-      @shelter = Shelter.new(shelter_params)
-      if @shelter.save
-        render json: Shelter.all
+    def update
+      shelter = Shelter.find(params[:id])
+      if shelter.update(shelter_params)
+        head 204
       else
-        render json: Shelter.all
+        render json: shelter.errors, status: 422
       end
+    end
+
+    def destroy
+      shelter = Shelter.find(params[:id])
+      shelter.destroy
+      head 204
     end
 
   private
