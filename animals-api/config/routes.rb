@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :animals, only: [:index, :show]
 
     resources :shelters, only: [:index, :show, :create, :update, :destroy] do
-      resources :animals, only: [:index, :show, :new, :create]
+      resources :animals, only: [:index, :show, :create, :update, :destroy]
     end
 
   end

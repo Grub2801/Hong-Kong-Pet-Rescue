@@ -1,7 +1,6 @@
 module Api
   class SheltersController < ApplicationController
 
-
     def index
       render json: Shelter.all
       # render json: {message: 'Resource not found'}
