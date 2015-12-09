@@ -1,0 +1,76 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #5a5255;
+}
+
+.navbar-default {
+  background-color: #5a5255 !important;
+}
+.navbar-default .navbar-brand {
+  color:  rgba(195, 203, 113, 0.4) !important;
+  font-size: 30px;
+}
+
+.navbar-default .navbar-brand:hover {
+  color:  rgba(195, 203, 113, 1) !important;
+  font-size: 30px;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color:  rgba(195, 203, 113, 0.4) !important;
+}
+
+.navbar-default .navbar-nav>li>a:hover {
+  color:  rgba(195, 203, 113, 1) !important;
+}
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+.footer a {
+    color: #c3cb71;
+    font-size: 20px;
+    padding: 10px;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}
+
+.footer a:hover {
+    color: white;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease;
+}

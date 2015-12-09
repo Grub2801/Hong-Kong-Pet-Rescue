@@ -16,5 +16,6 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie
+//= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
 //= require_self
