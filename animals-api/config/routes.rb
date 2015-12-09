@@ -8,5 +8,7 @@ Rails.application.routes.draw do
       resources :animals, only: [:index, :show, :create, :update, :destroy]
     end
 
+    resources :favorites, only: [:index, :create, :destroy]
+
   end
 end

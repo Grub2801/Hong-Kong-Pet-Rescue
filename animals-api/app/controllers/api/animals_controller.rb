@@ -1,17 +1,26 @@
 module Api
   class AnimalsController < ApplicationController
-    # before_action :set_shelter
+    before_filter :set_shelter
 
     def index
-      render json: Animal.all
+      if @shelter
+        render json: @shelter.animals
+      else
+        @animals = Animal.includes(:shelter).all
+        render 'index.json.jbuilder'
+      end
     end
 
     def show
-      render json: Animal.find(params[:id])
+      if @shelter
+        render json: @shelter.animals.find(params[:id])
+      else
+        render json: Animal.find_by(id: params[:id])
+      end
     end
 
     def create
-      animal = Animal.new(animal_params)
+      animal = @shelter.animals.new(animal_params)
       if animal.save
         render json: animal, status: 201, location: [:api, animal]
       else
@@ -20,7 +29,7 @@ module Api
     end
 
     def update
-      animal = Animal.find(params[:id])
+      animal = @shelter.animals.find(params[:id])
       if animal.update(animal_params)
         head 204
       else
@@ -29,19 +38,22 @@ module Api
     end
 
     def destroy
-      animal = Animal.find(params[:id])
-      animal.destroy
-      head 204
+      animal = @shelter.animals.find(params[:id])
+      if animal.destroy
+        head 204
+      else
+        render json: animal.errors, status: 422
+      end
     end
 
   private
-    # def set_shelter
-    #   shelter = Shelter.find(params[:shelter_id])
-    # end
+    def set_shelter
+      @shelter = Shelter.find_by(id: params[:shelter_id])
+    end
 
     def animal_params
       params.require(:animal). permit(:specie, :color, :breed, :age, :size, :sex, :name, :note, :photo_url)
     end
-
+3
   end
 end
