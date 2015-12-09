@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151209044007) do
+ActiveRecord::Schema.define(version: 20151209050144) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,18 +39,59 @@ ActiveRecord::Schema.define(version: 20151209044007) do
   end
 
   create_table "shelters", force: :cascade do |t|
+    t.string   "provider",               default: "email", null: false
+    t.string   "uid",                    default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,       null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.string   "name"
-    t.string   "password_digest"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "email"
     t.string   "address"
     t.string   "phone"
-    t.string   "email"
     t.string   "website"
     t.string   "donation_info"
     t.string   "description"
-    t.string   "image_url"
     t.string   "location"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.json     "tokens"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
+
+  add_index "shelters", ["email"], name: "index_shelters_on_email", using: :btree
+  add_index "shelters", ["reset_password_token"], name: "index_shelters_on_reset_password_token", unique: true, using: :btree
+  add_index "shelters", ["uid", "provider"], name: "index_shelters_on_uid_and_provider", unique: true, using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "provider",               default: "email", null: false
+    t.string   "uid",                    default: "",      null: false
+    t.string   "encrypted_password",     default: "",      null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,       null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "name"
+    t.string   "nickname"
+    t.string   "image"
+    t.string   "email"
+    t.json     "tokens"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true, using: :btree
 
 end

@@ -3,8 +3,8 @@ class Animal < ActiveRecord::Base
 
   validates :name, presence: true
 
-  validates :specie, inclusion: {in: ['Any', 'Cat', 'Dog', 'Reptile & Fish', 'Rabbit', 'Rodent']}
-  validates :age, inclusion: {in: ['Unknown', 'Baby', 'Young', 'Adult', 'Senior']}
-  validates :size, inclusion: {in: ['Small', 'Medium', 'Large']}
-  validates :sex, inclusion: {in: ['Unknown', 'Male', 'Female']}
+  validates :specie, inclusion: {in: ['any', 'cat', 'dog', 'reptile & fish', 'rabbit', 'rodent']}
+  validates :age, inclusion: {in: ['unknown', 'baby', 'young', 'adult', 'senior']}
+  validates :size, inclusion: {in: ['small', 'medium', 'large']}
+  validates :sex, inclusion: {in: ['unknown', 'male', 'female']}
 end

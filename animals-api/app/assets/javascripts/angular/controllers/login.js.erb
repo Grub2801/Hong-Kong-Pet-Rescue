@@ -1,0 +1,31 @@
+app.controller('LoginCtrl', ['$scope', '$auth', '$location', 'UserFactory', function($scope, $auth, $location, UserFactory){
+  $scope.loginUser = function () {
+    $auth.submitLogin($scope.loginUserForm).
+     then(function(resp) {
+       // handle success response
+       console.log(resp);
+
+       // redirect back to root when registration succesfull
+       $location.path('/');
+     }).
+     catch(function(resp) {
+       // handle error response
+       console.log(resp);
+     });
+  };
+
+  $scope.loginShelter = function () {
+    $auth.submitLogin($scope.loginShelterForm, {config: "shelter"}).
+     then(function(resp) {
+       // handle success response
+       console.log(resp);
+       UserFactory.identity = resp;
+       // redirect back to root when registration succesfull
+       $location.path('/');
+     }).
+     catch(function(resp) {
+       // handle error response
+       console.log(resp);
+     });
+  };
+}])

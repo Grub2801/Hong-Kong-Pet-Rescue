@@ -1,0 +1,37 @@
+app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
+
+  $scope.signupUser = function () {
+    $auth.submitRegistration($scope.registrationForm.then(function(resp) {
+      // handle success response
+      console.log(resp);
+      // redirect back to root when registration succesfull
+      $location.path('/');
+    }).catch(function(resp) {
+      // handle error response
+      console.log(resp.data.errors);
+    }));
+  };
+
+  $scope.signupShelter = function () {
+    var test = {
+      email: "test10@test.com",
+      password: "asdfasdf",
+      password_confirmation: "asdfasdf",
+      location: "hong kong",
+      name: "test10"
+    }
+
+    $scope.registrationForm = test;
+
+    $auth.submitRegistration($scope.registrationForm, {config: "shelter"}).then(function(resp) {
+      // handle success response
+      console.log(resp);
+      // redirect back to root when registration succesfull
+      $location.path('/');
+    }).catch(function(resp) {
+      // handle error response
+      console.log(resp);
+    });
+  };
+
+  }])
