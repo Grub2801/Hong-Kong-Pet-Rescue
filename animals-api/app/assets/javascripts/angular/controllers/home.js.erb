@@ -1,6 +1,20 @@
-app.controller('HomeCtrl', ['$scope', '$auth', function($scope, $auth){
+app.controller('HomeCtrl', ['$scope', '$auth', '$http', function ($scope, $auth, $http){
   console.log("HomeCtrl");
+
+  $scope.animals = [];
+
+  function getAnimals(){
+    $http
+      .get('http://localhost:3000/api/animals')
+      .then(function(response){
+        $scope.animals = response.data;
+    });
+  }
+
+  getAnimals();
+
+
+
 
 
 }])
-

@@ -1,19 +1,18 @@
 <div id="search-form" class="conatainer well">
-
 <form>
   <div class="form-group">
     <label for="location">Location</label>
-    <select class="form-control">
-      <option>any</option>
+    <select ng-model="location" plcaeholder="ANY" class="form-control" >
+      <option value="" >- I like them all! -</option>
       <option>hong kong</option>
       <option>kowloon</option>
       <option>new territories</option>
     </select>
   </div>
   <div class="form-group">
-    <label for="specie">Specie</label>
-    <select class="form-control">
-      <option>any</option>
+    <label for="specie">Animal</label>
+    <select ng-model="specie" class="form-control">
+      <option value="" >- I like them all! -</option>
       <option>dog</option>
       <option>cat</option>
       <option>reptile & fish</option>
@@ -23,16 +22,16 @@
   </div>
   <div class="form-group">
     <label for="specie">Sex</label>
-    <select class="form-control">
-      <option>any</option>
+    <select ng-model="sex" class="form-control">
+      <option value="" >- I like them all! -</option>
       <option>female</option>
       <option>male</option>
     </select>
   </div>
   <div class="form-group">
     <label for="specie">Age</label>
-    <select class="form-control">
-      <option>any</option>
+    <select ng-model="age" class="form-control">
+      <option value="" >- I like them all! -</option>
       <option>baby</option>
       <option>young</option>
       <option>adult</option>
@@ -41,13 +40,14 @@
   </div>
   <div class="form-group">
     <label for="specie">Size</label>
-    <select class="form-control">
+    <select ng-model="size" class="form-control">
+      <option value="" >- I like them all! -</option>
       <option>small</option>
       <option>medium</option>
       <option>large</option>
     </select>
   </div>
 
-  <button type="submit" class="btn btn-outline">Search</button>
+  <!-- <button type="submit" class="btn btn-outline">Search</button> -->
 </form>
 </div>
