@@ -1,5 +1,5 @@
 app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
-
+  console.log("SignUpCtrl")
   $scope.signupUser = function () {
     $auth.submitRegistration($scope.registrationForm.then(function(resp) {
       // handle success response
@@ -14,18 +14,26 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $
 
   $scope.signupShelter = function () {
     var test = {
-      email: "test10@test.com",
+      email: "test102@test.com",
       password: "asdfasdf",
       password_confirmation: "asdfasdf",
       location: "hong kong",
-      name: "test10"
+      name: "test10",
+      address: "test1"
     }
+
+    // var test1 = {
+    //   email: "test100@test.com",
+    //   password: "12345678",
+    //   password_confirmation: "12345678",
+    //   location: "hong kong",
+    //   name: "test",
+    //   address: "test"
+    // }
 
     $scope.registrationForm = test;
 
     $auth.submitRegistration($scope.registrationForm, {config: "shelter"}).then(function(resp) {
-      // handle success response
-      console.log(resp);
       // redirect back to root when registration succesfull
       $location.path('/');
     }).catch(function(resp) {
@@ -33,5 +41,4 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$location', function($scope, $
       console.log(resp);
     });
   };
-
-  }])
+}])

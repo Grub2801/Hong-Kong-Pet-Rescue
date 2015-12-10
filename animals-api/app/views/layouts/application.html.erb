@@ -6,9 +6,12 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
-<body ui-view>
+<body>
+<main-nav-bar></main-nav-bar>
 
-<%= yield %>
+<div ui-view>
+  <%= yield %>
+</div>
 
 </body>
 </html>

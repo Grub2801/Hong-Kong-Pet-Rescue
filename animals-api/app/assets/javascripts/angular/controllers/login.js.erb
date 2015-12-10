@@ -1,4 +1,5 @@
-app.controller('LoginCtrl', ['$scope', '$auth', '$location', 'UserFactory', function($scope, $auth, $location, UserFactory){
+app.controller('LoginCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
+  console.log("LoginCtrl")
   $scope.loginUser = function () {
     $auth.submitLogin($scope.loginUserForm).
      then(function(resp) {
@@ -17,9 +18,6 @@ app.controller('LoginCtrl', ['$scope', '$auth', '$location', 'UserFactory', func
   $scope.loginShelter = function () {
     $auth.submitLogin($scope.loginShelterForm, {config: "shelter"}).
      then(function(resp) {
-       // handle success response
-       console.log(resp);
-       UserFactory.identity = resp;
        // redirect back to root when registration succesfull
        $location.path('/');
      }).
