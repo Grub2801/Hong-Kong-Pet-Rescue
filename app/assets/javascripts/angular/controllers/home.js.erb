@@ -1,0 +1,24 @@
+app.controller('HomeCtrl', ['$scope', '$auth', '$http', function ($scope, $auth, $http){
+  console.log("HomeCtrl");
+
+
+
+  $scope.animals = [];
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  function getAnimals(){
+    $http
+      .get( url + '/api/animals')
+      .then(function(response){
+        $scope.animals = response.data;
+    });
+  }
+
+  getAnimals();
+
+
+
+
+
+}])

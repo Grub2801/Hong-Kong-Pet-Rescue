@@ -1,0 +1,32 @@
+app.controller('NavBarCtrl', ['$scope', '$auth', 'UserFactory', '$rootScope', function($scope, $auth, UserFactory, $rootScope){
+  console.log("NavBarCtrl")
+
+  // check if user exist
+  $auth.validateUser().then(function(user){
+    UserFactory.identity = user;
+    $scope.current_user = UserFactory.identity;
+  });
+
+  // when user loging succefully in login page
+  $rootScope.$on('auth:login-success', function(ev, user) {
+    UserFactory.identity = user;
+    $scope.current_user = UserFactory.identity;
+  });
+
+  // when user signup succesfully in signup page
+  $rootScope.$on('auth:registration-email-success', function(ev, user) {
+    UserFactory.identity = user;
+    $scope.current_user = UserFactory.identity;
+  });
+
+  $scope.logout = function () {
+    $auth.signOut({config: "shelter"}).then(function(resp) {
+      console.log(resp);
+      UserFactory.identity = null;
+      $scope.current_user = null;
+    }).catch(function(resp) {
+      console.log(resp.data.errors);
+    });
+  };
+}])
+
