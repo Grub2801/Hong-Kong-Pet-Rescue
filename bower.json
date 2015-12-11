@@ -1,0 +1,11 @@
+{
+  "name": "animals-api",
+  "version": "0.0.1",
+  "dependencies": {
+    "angular": "~1.4.8",
+    "ng-token-auth": "~0.0.28",
+    "fontawesome": "~4.5.0",
+    "bootstrap": "~3.3.6",
+    "angular-ui-router": "~0.2.15"
+  }
+}

@@ -2,10 +2,11 @@ app.controller('HomeCtrl', ['$scope', '$auth', '$http', function ($scope, $auth,
   console.log("HomeCtrl");
 
   $scope.animals = [];
+  var env = window.location.origin;
 
   function getAnimals(){
     $http
-      .get('http://localhost:3000/api/animals')
+      .get( env + '/api/animals' || 'http://localhost:3000/api/animals')
       .then(function(response){
         $scope.animals = response.data;
     });

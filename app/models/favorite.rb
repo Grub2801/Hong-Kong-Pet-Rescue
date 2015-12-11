@@ -1,4 +1,4 @@
-class Favorite < ActiveRecord::
+class Favorite < ActiveRecord::Base
   # belongs_to :user
   belongs_to :animal
 
@@ -14,5 +14,5 @@ class Favorite < ActiveRecord::
   #     errors.add(:user_id, "has already been saved for this relationship")
   #     errors.add(:animal_id, "has already been saved for this relationship")
   #   end
-  end
+  # end
 end
