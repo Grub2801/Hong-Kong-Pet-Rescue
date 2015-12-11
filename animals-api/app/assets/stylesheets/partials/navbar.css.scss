@@ -1,5 +1,10 @@
 /* Sticky footer styles
 -------------------------------------------------- */
+@font-face {
+font-family: 'Lato';
+src: asset-url("Lato-Light.ttf")  format('truetype');
+}
+
 html {
   position: relative;
   min-height: 100%;
@@ -9,6 +14,8 @@ body {
   margin-bottom: 60px;
   padding-top: 50px;
   padding-bottom: 50px;
+  font-family: 'Lato';
+
 }
 
 .footer {
