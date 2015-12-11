@@ -22,6 +22,17 @@ Shelter.destroy_all
       location: "hong kong",
       email: "test2@test.com",
       password: "asdfasdf"
+    },
+    {name: "Hong Kong Alley Cat Watch",
+      address: "",
+      phone: "93100744",
+      website: "http://www.hkalleycatwatch.com/contact.html",
+      donation_info: "How to make a donation (english) http://www.hkalleycatwatch.com/howdona.html",
+      description: "HK Alley Cats Watch was founded in 1997. Privately funded, its sole aim was to help the plight of Hong Kong’s street cats.",
+      image: "",
+      location: "hong kong",
+      email: "michelle@hkalleycatwatch.com",
+      password: "12345678"
     }
   ])
 
@@ -29,6 +40,17 @@ Shelter.destroy_all
 Animal.destroy_all
 
 Animal.create([
+    {specie: "cat",
+      color: "ginger",
+      breed: "",
+      age: "unknown",
+      size: "small",
+      sex: "male",
+      name: "Bruce",
+      note: "Bruce is looking for new home. He was rescued from a storm drain in Shek O and hand-reared after being separated from his mother during a storm when he was only a day old. This 2 year old healthy, handsome guy is an affectionate, playful lap cat that needs a bit of attention and love each day. Sadly he can sometimes be a little too playful for our small children and their friends and he’s looking for a child-free home where he can have some quiet and an owner who is able to pet him and play with him. He was raised with dogs during his early weeks, so should be okay in a dog-friendly household. ",
+      photo_url: "http://www.hkalleycatwatch.com/photodata//Bruce/thumbnails/Brucenew2.jpg",
+      shelter_id: Shelter.first.id
+    },
     {specie: "dog",
       color: "chocolate",
       breed: "mongrel",

@@ -15,4 +15,5 @@
 /bower.json
 /bower_components
 *.bowerrc
+*.DS_Store
 .DS_Store
