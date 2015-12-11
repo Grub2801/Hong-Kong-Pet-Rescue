@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bower'
 gem 'devise_token_auth'
 gem 'omniauth'
+gem 'font-awesome-sass'
 
 group :development, :test do
   gem 'byebug'

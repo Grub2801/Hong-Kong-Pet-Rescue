@@ -70,6 +70,8 @@ GEM
       rails (~> 4.2)
     erubis (2.7.0)
     execjs (2.6.0)
+    font-awesome-sass (4.4.0)
+      sass (>= 3.2)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashie (3.4.3)
@@ -187,6 +189,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise_token_auth
+  font-awesome-sass
   jbuilder (~> 2.0)
   jquery-rails
   omniauth

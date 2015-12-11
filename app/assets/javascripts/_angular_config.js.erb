@@ -24,13 +24,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
   $urlRouterProvider.otherwise('/');
 
   $authProvider.configure([
-    var env = window.location.href;
+    // var env = window.location.origin;
   {
     default: { // user
-      apiUrl:                env || 'http://localhost:3000'
+      apiUrl:                'http://localhost:3000'
     },
     shelter: { // shelter
-      apiUrl:                env || 'http://localhost:3000',
+      apiUrl:                'http://localhost:3000',
       signOutUrl:            '/auth_shelter/sign_out',
       emailSignInPath:       '/auth_shelter/sign_in',
       emailRegistrationPath: '/auth_shelter',
