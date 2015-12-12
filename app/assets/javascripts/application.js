@@ -12,7 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/dist/masonry.pkgd
 //= require angular/angular
+//= require angular-resource/angular-resource.min
 //= require angular-ui-router/release/angular-ui-router
 //= require ng-token-auth/dist/ng-token-auth
 //= require angular-cookie/angular-cookie

@@ -13,6 +13,7 @@ gem 'bower'
 gem 'devise_token_auth'
 gem 'omniauth'
 gem 'font-awesome-sass'
+gem 'masonry-rails'
 
 group :development, :test do
   gem 'byebug'

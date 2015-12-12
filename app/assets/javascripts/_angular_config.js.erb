@@ -1,11 +1,11 @@
-var app = angular.module('animalRescue', ['ui.router', 'ng-token-auth'])
+var app = angular.module('animalRescue', ['ngResource', 'ui.router', 'ng-token-auth'])
 
 app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
   function ($stateProvider, $urlRouterProvider, $authProvider){
 
   $stateProvider
-    .state('home', {
-      url: '/',
+    .state('animal', {
+      url: '/animals',
       templateUrl: "<%= asset_path('static_pages/index.html') %>",
       controller: 'HomeCtrl'
     })
@@ -19,12 +19,16 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
       templateUrl: "<%= asset_path('auth/login.html') %>",
       controller: 'LoginCtrl'
     })
+    .state('details', {
+      url: '/animals/:animalId',
+      templateUrl: "<%= asset_path('partials/animaldetail.html') %>",
+      controller: 'HomeCtrl'
+    });
 
-
-  $urlRouterProvider.otherwise('/');
+  $urlRouterProvider.otherwise('/animals');
 
   $authProvider.configure([
-    // var env = window.location.origin;
+
   {
     default: { // user
       apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000"

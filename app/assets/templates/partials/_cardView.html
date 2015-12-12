@@ -1,6 +1,10 @@
-<div class='card'>
-  <h4 class="card-title">{{ animal.name }}</h4>
-  <h6>{{ animal.location }}</h6>
-  <h6>{{ animal.sex }}, {{ animal.age }}</h6>
-  <h6>{{ animal.specie }}</h6>
-</div>
+
+  <div>
+    <img ng-src="{{animal.photo_url}}" width="200">
+    <a href="/#/animals/{{animal.id}}">{{animal.name}}</a>
+    <h6>{{ animal.location }}</h6>
+    <h6>{{ animal.sex }}, {{ animal.age }}</h6>
+    <h6>{{ animal.specie }}</h6>
+  </div>
+
+

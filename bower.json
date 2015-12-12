@@ -6,6 +6,8 @@
     "ng-token-auth": "~0.0.28",
     "fontawesome": "~4.5.0",
     "bootstrap": "~3.3.6",
-    "angular-ui-router": "~0.2.15"
+    "angular-ui-router": "~0.2.15",
+    "masonry": "~3.3.2",
+    "angular-resource": "~1.4.8"
   }
 }

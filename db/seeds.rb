@@ -89,7 +89,7 @@ Animal.create([
       sex: "male",
       name: "baloon",
       note: "My name is Balloon. I am a Tabby & White Male Domestic Short Hair(Neutered) and I was rescued from Cat Colony Care Programme.",
-      shelter_id: Shelter.first.id
+      shelter_id: Shelter.last.id
     },
     {specie: "dog",
       color: "black & brindle",
@@ -99,6 +99,6 @@ Animal.create([
       sex: "female",
       name: "samiya",
       note: "Samiya is a black and brindle colored mixed breed puppy girl. Sweet and passionate. She loves to interact with people and like to be reward with pat. She is looking for someone likes to teach her all good manners to be calm and polite.",
-      shelter_id: Shelter.first.id
+      shelter_id: Shelter.last.id
     }
   ])

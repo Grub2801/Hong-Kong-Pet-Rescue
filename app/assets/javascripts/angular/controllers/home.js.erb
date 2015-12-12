@@ -1,24 +1,31 @@
-app.controller('HomeCtrl', ['$scope', '$auth', '$http', function ($scope, $auth, $http){
+app.controller('HomeCtrl', ['$scope', '$auth', '$http', 'AnimalFactory', '$stateParams', function ($scope, $auth, $http, AnimalFactory, $stateParams){
   console.log("HomeCtrl");
+  console.log($stateParams.animalId);
 
+  var AnimalList = AnimalFactory;
 
+  $scope.allAnimals = AnimalList.query();
 
-  $scope.animals = [];
+  console.log($scope.allAnimals)
 
-  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+  //show
+  $scope.animal = AnimalList.get({id: $stateParams.animalId})
 
-  function getAnimals(){
-    $http
-      .get( url + '/api/animals')
-      .then(function(response){
-        $scope.animals = response.data;
-    });
-  }
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
 
-  getAnimals();
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
 
-
-
-
+  return t;
+}(document, "script", "twitter-wjs"));
 
 }])

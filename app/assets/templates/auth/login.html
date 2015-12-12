@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="row">
-    <h1>Login</h1>
+  <div class="row col-xs-12">
+    <h1>Shelter/Rescue Login</h1>
     <form ng-submit="loginShelter()" role="form" ng-init="loginShelterForm = {}">
       <div class="form-group">
         <label>Email</label>
@@ -11,9 +11,11 @@
         <label>Password</label>
         <input type="password" name="password" ng-model="loginShelterForm.password" required="required" class="form-control" placeholder="Enter Password"/>
       </div>
+      <p>Dont have an account? Please <a href="/#/signup">Sign Up</a></p>
 
-      <button type="submit" class="btn btn-primary btn-lg">Login</button>
-      <a href="/#/"><button class="btn btn-danger btn-lg">Back</button></a>
+      <button id="login-btn" type="submit" class="btn btn-lg">Login</button>
+      <a href="/#/">
+      <button id="back-btn" class="btn btn-lg">Back</button></a>
     </form>
   </div>
 </div>
