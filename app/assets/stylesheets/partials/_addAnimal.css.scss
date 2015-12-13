@@ -1,0 +1,29 @@
+#post-animal {
+  background-color: rgba(85, 158, 131, 0.4);
+  color: #5a5255;
+  border-radius: 40px;
+}
+
+select.form-control{
+  color: #5a5255;
+}
+
+input#add-animal {
+  background-color: rgba(85, 158, 131, 0.1);
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+input#add-animal:hover {
+  color: white;
+  background-color: rgba(85, 158, 131, 0.8);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}

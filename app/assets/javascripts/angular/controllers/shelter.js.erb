@@ -1,0 +1,15 @@
+app.controller('ShelterCtrl', ['$scope', '$auth', '$http', 'ShelterFactory', '$stateParams', function ($scope, $auth, $http, ShelterFactory, $stateParams){
+  console.log("ShelterCtrl");
+  console.log($stateParams.shelterId);
+
+  var ShelterList = ShelterFactory;
+
+  //show all shelters in api database
+  $scope.allShelters = ShelterList.query();
+
+  console.log($scope.allShelters)
+
+  //show one shelter
+  $scope.shelter = ShelterList.get({id: $stateParams.shelterId})
+
+}])

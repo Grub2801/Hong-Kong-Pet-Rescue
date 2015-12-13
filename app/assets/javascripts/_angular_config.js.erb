@@ -1,0 +1,65 @@
+var app = angular.module('animalRescue', ['ngResource', 'ui.router', 'ng-token-auth'])
+
+app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
+  function ($stateProvider, $urlRouterProvider, $authProvider){
+
+  $stateProvider
+    .state('animal', {
+      url: '/animals',
+      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      controller: 'HomeCtrl'
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: "<%= asset_path('auth/signup.html') %>",
+      controller: 'SignUpCtrl'
+    })
+    .state('login', {
+      url: '/login',
+      templateUrl: "<%= asset_path('auth/login.html') %>",
+      controller: 'LoginCtrl'
+    })
+    .state('details', {
+      url: '/animals/:animalId',
+      templateUrl: "<%= asset_path('static_pages/animal_detail.html') %>",
+      controller: 'HomeCtrl'
+    })
+    .state('shelters', {
+      url: '/shelters',
+      templateUrl: "<%= asset_path('static_pages/shelters_index.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelter', {
+      url: '/shelters/:shelterId',
+      templateUrl: "<%= asset_path('static_pages/shelter_detail.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelteranimal', {
+      url: '/shelters/:shelterId/animals',
+      templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
+      controller: 'AdminShelterCtrl'
+    });
+
+  $urlRouterProvider.otherwise('/animals');
+
+  $authProvider.configure([
+
+  {
+    default: { // user
+      apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000"
+    },
+    shelter: { // shelter
+      apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000",
+      signOutUrl:            '/auth_shelter/sign_out',
+      emailSignInPath:       '/auth_shelter/sign_in',
+      emailRegistrationPath: '/auth_shelter',
+      accountUpdatePath:     '/auth_shelter',
+      accountDeletePath:     '/auth_shelter',
+      passwordResetPath:     '/auth_shelter/password',
+      passwordUpdatePath:    '/auth_shelter/password',
+      tokenValidationPath:   '/auth_shelter/validate_token'
+    }
+  }
+  ]);
+
+}]);

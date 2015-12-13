@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Add a new animal:</h1>
+  <add-animal-form></add-animal-form>
+
+  <div>
+    <shelter-title shelter="shelter" ></shelter-title>
+  </div>
+
+  <div>
+    <ul>
+      <li ng-repeat="animal in shelterAnimals">
+        {{ animal.name }} <span> {{ animal.specie }}</span>
+        <a href="" ng-click="editAnimal(animal)">Edit</a>
+        <button ng-click="deleteAnimal(animal.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+</div>
