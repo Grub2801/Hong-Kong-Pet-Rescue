@@ -21,8 +21,23 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
     })
     .state('details', {
       url: '/animals/:animalId',
-      templateUrl: "<%= asset_path('partials/animaldetail.html') %>",
+      templateUrl: "<%= asset_path('static_pages/animal_detail.html') %>",
       controller: 'HomeCtrl'
+    })
+    .state('shelter', {
+      url: '/shelters',
+      templateUrl: "<%= asset_path('static_pages/shelters_index.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelterdetail', {
+      url: '/shelters/:shelterId',
+      templateUrl: "<%= asset_path('static_pages/shelter_detail.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelteranimals', {
+      url: '/shelters/:shelterId/animals/:id',
+      templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
+      controller: 'AdminShelterCtrl'
     });
 
   $urlRouterProvider.otherwise('/animals');

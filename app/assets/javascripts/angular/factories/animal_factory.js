@@ -6,7 +6,6 @@ app.factory('AnimalFactory', AnimalFactory)
 
   var url ="http://localhost:3000";
 
-
   console.log(url);
 
   function AnimalFactory($resource) {
