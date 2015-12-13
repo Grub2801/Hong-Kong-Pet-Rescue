@@ -24,18 +24,18 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
       templateUrl: "<%= asset_path('static_pages/animal_detail.html') %>",
       controller: 'HomeCtrl'
     })
-    .state('shelter', {
+    .state('shelters', {
       url: '/shelters',
       templateUrl: "<%= asset_path('static_pages/shelters_index.html') %>",
       controller: 'ShelterCtrl'
     })
-    .state('shelterdetail', {
+    .state('shelter', {
       url: '/shelters/:shelterId',
       templateUrl: "<%= asset_path('static_pages/shelter_detail.html') %>",
       controller: 'ShelterCtrl'
     })
-    .state('shelteranimals', {
-      url: '/shelters/:shelterId/animals/:id',
+    .state('shelteranimal', {
+      url: '/shelters/:shelterId/animals',
       templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
       controller: 'AdminShelterCtrl'
     });
