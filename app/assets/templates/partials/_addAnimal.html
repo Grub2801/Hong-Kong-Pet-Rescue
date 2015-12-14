@@ -55,7 +55,9 @@
       </select>
     </div>
     <div>
-      <input id="add-animal" type="submit" value="Add animal">
+      <input ng-hide="editing" class="btn btn-add" type="submit" value="Add animal">
+      <input ng-show="editing" ng-click="editing = false" class="btn btn-save" type="submit" value="Save">
+      <input ng-show="editing" class="btn btn-cancel" type="submit" value="Cancel">
     </div>
   </form>
 </div>

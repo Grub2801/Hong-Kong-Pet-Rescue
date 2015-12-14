@@ -2,9 +2,7 @@ app.factory('ShelterAnimalFactory', ShelterAnimalFactory)
 
   ShelterAnimalFactory.$inject = ['$resource'];
 
-  // var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
-
-  var url ="http://localhost:3000";
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
   function ShelterAnimalFactory($resource) {
     return $resource( url + '/api/shelters/:shelterId/animals/:id',

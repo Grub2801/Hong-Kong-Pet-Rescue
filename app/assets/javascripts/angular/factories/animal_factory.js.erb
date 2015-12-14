@@ -2,9 +2,7 @@ app.factory('AnimalFactory', AnimalFactory)
 
   AnimalFactory.$inject = ['$resource'];
 
-  // var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
-
-  var url ="http://localhost:3000";
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
 
   console.log(url);
 

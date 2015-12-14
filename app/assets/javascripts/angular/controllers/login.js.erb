@@ -1,29 +1,33 @@
 app.controller('LoginCtrl', ['$scope', '$auth', '$location', function($scope, $auth, $location){
   console.log("LoginCtrl")
+
   $scope.loginUser = function () {
     $auth.submitLogin($scope.loginUserForm).
      then(function(resp) {
        // handle success response
-       console.log(resp);
+       // console.log(resp);
 
        // redirect back to root when registration succesfull
        $location.path('/');
      }).
      catch(function(resp) {
        // handle error response
-       console.log(resp);
+       // console.log(resp);
      });
   };
 
   $scope.loginShelter = function () {
     $auth.submitLogin($scope.loginShelterForm, {config: "shelter"}).
-     then(function(resp) {
-       // redirect back to root when registration succesfull
-       $location.path('/');
+      then( function (resp) {
+        // console.log("PIP")
+        // console.log(resp.id);
+        var shelterId = resp.id;
+        // redirect back to root when registration succesfull
+        $location.path('/shelters/' + shelterId + '/animals');
      }).
      catch(function(resp) {
        // handle error response
-       console.log(resp);
+       // console.log(resp);
      });
   };
 }])

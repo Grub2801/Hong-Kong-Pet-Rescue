@@ -7,13 +7,12 @@
   </div>
 
   <div>
-    <shelter-animal-list></shelter-animal-list>
-<!--     <ul>
+    <ul>
       <li ng-repeat="animal in shelterAnimals">
-        {{ animal.name }} <span> {{ animal.specie }}</span>
-        <a href="" ng-click="editAnimal(animal)">Edit</a>
-        <button ng-click="deleteAnimal(animal.id)">Delete</button>
+        {{ animal.name }} | <span> {{ animal.specie }}</span>
+        <button class="btn btn-edit" ng-click="editAnimal(animal); editing = true">Edit</button>
+        <button class="btn btn-delete" ng-click="deleteAnimal(animal.id)">X</button>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </div>
