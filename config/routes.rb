@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth'
 
+  # mount_devise_token_auth_for 'Public', at: 'auth_public', controller: {
+  #   registrations: "publics/registrations"
+  # }
+
   mount_devise_token_auth_for 'Shelter', at: 'auth_shelter', controllers: {
     registrations: "shelters/registrations"
   }

@@ -17,8 +17,11 @@
             <li class="dropdown">
               <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Signup or Login <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a ng-hide="current_user" href="/#/signup">Shelter/Rescue Signup</a></li>
-                <li><a ng-hide="current_user" href="/#/login">Shelter/Rescue Login</a></li>
+                <li><a ng-hide="current_user" href="/#/admin/signup">Shelter/Rescue Signup</a></li>
+                <li><a ng-hide="current_user" href="/#/admin/login">Shelter/Rescue Login</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a ng-hide="current_user" href="/#/signup">Public Signup</a></li>
+                <li><a ng-hide="current_user" href="/#/login">Public Login</a></li>
                 <li><a ng-show="current_user" ng-click="logout()">Logout</a></li>
               </ul>
             </li>

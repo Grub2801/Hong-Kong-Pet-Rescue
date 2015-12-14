@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row col-xs-12">
+    <h1>Login</h1>
+    <form ng-submit="loginUser()" role="form" ng-init="loginUserForm = {}">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" ng-model="loginUserForm.email" required="required" class="form-control" placeholder="Enter Email"/>
+      </div>
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" name="password" ng-model="loginUserForm.password" required="required" class="form-control" placeholder="Enter Password"/>
+      </div>
+      <p>Dont have an account? Please <a href="/#/signup">Sign Up</a></p>
+      <button id="login-btn" type="submit" class="btn btn-lg">Login</button>
+      <a href="/#/">
+      <button id="back-btn" class="btn btn-lg">Back</button></a>
+    </form>
+  </div>
+</div>
