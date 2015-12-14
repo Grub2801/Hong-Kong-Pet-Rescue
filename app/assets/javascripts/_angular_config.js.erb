@@ -39,6 +39,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
       templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
       controller: 'AdminShelterCtrl'
     });
+    // .state('shelteranimal', {
+    //   url: '/shelters/:shelterId/animals/:id/edit',
+    //   templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
+    //   controller: 'AdminShelterCtrl'
+    // });
 
   $urlRouterProvider.otherwise('/animals');
 

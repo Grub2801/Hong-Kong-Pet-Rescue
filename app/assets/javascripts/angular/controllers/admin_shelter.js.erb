@@ -24,23 +24,25 @@ app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFa
 
   // fill the form to edit an animal
   $scope.editAnimal = function(animal){
-    console.log(animal)
+    // console.log(animal)
     $scope.shelterAnimal = animal;
   }
 
   // post a new animal
-  $scope.addAnimal = function () {
-    // console.log($scope.shelterAnimals)
-    console.log($scope.shelterAnimal)
-    console.log($stateParams.shelterId)
-    console.log($scope.shelterAnimal.name)
+  $scope.addAnimal = function (id) {
+    // console.log($scope.shelterAnimal)
+    // console.log($stateParams.shelterId)
+    // console.log($scope.shelterAnimal.name)
+    // console.log($scope.shelterAnimal.id)
 
-    if ({shelterId: $stateParams.shelterId, id: id }) {
-      ShelterAnimals.update($scope.shelterAnimal, function () {
+    if ($scope.shelterAnimal.id) {
+      var id = $scope.shelterAnimal.id;
+      ShelterAnimals.update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal, function () {
         $scope.shelterAnimal = {};
-      });
+        console.log('animal updated');
+      })
     } else {
-      ShelterAnimals.save($scope.shelterAnimal, function (shelterAnimal) {
+      ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
         $scope.shelterAnimals.push(shelterAnimal);
         $scope.shelterAnimal = {};
       });

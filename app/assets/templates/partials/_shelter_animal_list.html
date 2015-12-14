@@ -1,0 +1,7 @@
+<ul>
+  <li ng-repeat="animal in shelterAnimals">
+    {{animal.id}}{{ animal.name }} <span> {{ animal.specie }}</span>
+    <a  ng-click="editAnimal(animal)">Edit</a>
+    <button ng-click="deleteAnimal(animal.id)">Delete</button>
+  </li>
+</ul>

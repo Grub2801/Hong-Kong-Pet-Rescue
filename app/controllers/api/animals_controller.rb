@@ -15,7 +15,10 @@ module Api
       if @shelter
         render json: @shelter.animals.find(params[:id])
       else
-        render json: Animal.find_by(id: params[:id])
+        # render json: Animal.find_by(id: params[:id])
+        @animal = Animal.includes(:shelter).find_by(id: params[:id])
+        @shelter
+        render 'show.json.jbuilder'
       end
     end
 
