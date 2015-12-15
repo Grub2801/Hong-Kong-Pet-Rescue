@@ -1,0 +1,7 @@
+app.directive('mainNavBar', function(){
+  return {
+    restrict: 'E',
+    templateUrl: "<%= asset_path('partials/navbar.html') %>",
+    controller: 'NavBarCtrl'
+  }
+})

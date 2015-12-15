@@ -1,0 +1,18 @@
+<div class="container">
+<h1>Welcome{{user.email}}</h1>
+  <main-search-form></main-search-form>
+    <section id="card" class='container-fluid'>
+
+      <div class="grid js-masonry"
+      data-masonry-options='{ "columnWidth": 200, "gutter": 20, "itemSelector": ".grid-item" }'>
+
+        <div ng-repeat="animal in allAnimals | filter:location | filter:specie | filter:sex | filter:age | filter:size | orderBy:'-created_at'" >
+
+          <animal-card animal="animal" class="grid-item" ></animal-card>
+
+        </div>
+
+      </div>
+
+    </section>
+</div>

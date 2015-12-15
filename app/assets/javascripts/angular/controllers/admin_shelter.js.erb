@@ -1,0 +1,37 @@
+app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFactory', '$stateParams', function ($scope, $auth, $http, ShelterAnimalFactory, $stateParams){
+
+  $scope.shelterAnimal = {};
+  var ShelterAnimals = ShelterAnimalFactory;
+
+  //show animals that belong to one shelter
+  $scope.shelterAnimals = ShelterAnimals.query({shelterId:$stateParams.shelterId})
+
+  //delete an animal from a shelter
+  $scope.deleteAnimal = function (id){
+    ShelterAnimals.delete({shelterId: $stateParams.shelterId, id: id });
+    var index = $scope.shelterAnimals.indexOf(id);
+    $scope.shelterAnimals.splice(index, 1);
+  }
+
+  // fill the form to edit an animal
+  $scope.editAnimal = function(animal){
+    // console.log(animal)
+    $scope.shelterAnimal = animal;
+  }
+
+  // post a new animal
+  $scope.addAnimal = function (id) {
+    if ($scope.shelterAnimal.id) {
+      var id = $scope.shelterAnimal.id;
+      ShelterAnimals.update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal, function () {
+        $scope.shelterAnimal = {};
+        console.log('animal updated');
+      })
+    } else {
+      ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
+        $scope.shelterAnimals.push(shelterAnimal);
+        $scope.shelterAnimal = {};
+      });
+    }
+  }
+}])

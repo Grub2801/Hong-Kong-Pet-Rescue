@@ -1,0 +1,37 @@
+app.controller('SignUpCtrl', ['$scope', '$auth', '$location', '$stateParams', function($scope, $auth, $location, $stateParams){
+
+  $scope.signupUser = function () {
+    console.log($scope.publicRegistrationForm);
+
+    $auth.submitRegistration($scope.publicRegistrationForm)
+    .then(function(resp) {
+      console.log('public user')
+      // handle success response
+      // redirect back to root when registration succesfull
+      $location.path('/');
+    })
+    .catch(function(resp) {
+      // handle error response
+      console.log('public user')
+      console.log(resp);
+    });
+  };
+
+  $scope.signupShelter = function () {
+    $auth
+    .submitRegistration($scope.registrationForm, {config: "shelter"})
+    .then(function(resp) {
+      // redirect back to root when registration succesfull
+      // console.log("HELLOOOOOOOO")
+      // console.log(resp.data.data.id);
+      var shelterId = resp.data.data.id;
+      $location.path('/shelters/' + shelterId + '/animals');
+      // ^^+add the id for the shelter
+    })
+    .catch(function(resp) {
+      // handle error response
+      console.log('shelter user')
+      console.log(resp)
+    });
+  };
+}])
