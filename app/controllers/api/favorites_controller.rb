@@ -33,6 +33,7 @@ module Api
       end
     end
 
+
     def favorite_params
       params.permit(:animal_id)
     end

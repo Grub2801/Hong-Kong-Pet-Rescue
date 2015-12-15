@@ -57,6 +57,11 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
       url: '/login',
       templateUrl: "<%= asset_path('auth/public_login.html') %>",
       controller: 'LoginCtrl'
+    })
+    .state('favorite' , {
+      url: '/favorites',
+      templateUrl: "<%= asset_path('static_pages/favorites.html') %>",
+      controller: 'FavoriteCtrl'
     });
 
 
