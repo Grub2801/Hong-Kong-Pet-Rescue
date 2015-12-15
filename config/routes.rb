@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   mount_devise_token_auth_for 'User', at: 'auth', controllers: {
-    registrations: "registrations"
+    registrations: "override_users/registrations"
   }
 
   mount_devise_token_auth_for 'Shelter', at: 'auth_shelter', controllers: {
-    registrations: "shelters/registrations"
+    registrations: "override_shelters/registrations"
   }
 
   # as :shelter do

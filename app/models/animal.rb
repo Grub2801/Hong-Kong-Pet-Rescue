@@ -1,5 +1,7 @@
 class Animal < ActiveRecord::Base
+  has_many :favorites
   belongs_to :shelter
+  has_many :users, through: :favorites
 
   validates :name, presence: true
 
