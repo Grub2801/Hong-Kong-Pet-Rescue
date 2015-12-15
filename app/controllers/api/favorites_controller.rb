@@ -5,12 +5,12 @@ module Api
     # before_action :favorite, only: [:destroy]
 
     def index
-      render json: current_shelter.favorites
+      render json: current_user.favorites
     end
 
     def create
-      @favorite = current_shelter.favorite.new
-      @favorite.user = current_shelter
+      @favorite = current_user.favorite.new
+      @favorite.user = current_user
       favorite.animal = Animal.find(params[:favorite][animal._id])
       if @favorite.save
         render json: favorite, status: 201, location: [:api, favorite]
@@ -26,12 +26,12 @@ module Api
     end
 
     private
-    def favorite
-      unless @favorite = current_shelter.favorites.find(params[:id])
-        flash[:alert] = 'Favorite not found.'
-        redirect_to root_url
-      end
-    end
+    # def favorite
+    #   unless @favorite = current_user.favorites.find(params[:id])
+    #     flash[:alert] = 'Favorite not found.'
+    #     redirect_to root_url
+    #   end
+    # end
 
   end
 end

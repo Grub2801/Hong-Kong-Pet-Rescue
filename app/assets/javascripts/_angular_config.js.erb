@@ -56,70 +56,71 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
   $authProvider.configure([
 
     {
-    default: { // user
-      apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000",
-      tokenValidationPath:     '/auth/validate_token',
-      signOutUrl:              '/auth/sign_out',
-      emailRegistrationPath:   '/auth',
-      accountUpdatePath:       '/auth',
-      accountDeletePath:       '/auth',
-      confirmationSuccessUrl:  window.location.href,
-      passwordResetPath:       '/auth/password',
-      passwordUpdatePath:      '/auth/password',
-      passwordResetSuccessUrl: window.location.href,
-      emailSignInPath:         '/auth/sign_in',
-      storage:                 'cookies',
-      forceValidateToken:      false,
-      validateOnPageLoad:      true,
-      proxyIf:                 function() { return false; },
-      proxyUrl:                '/proxy',
-      omniauthWindowType:      'sameWindow',
-      authProviderPaths: {
-        github:   '/auth/github',
-        facebook: '/auth/facebook',
-        google:   '/auth/google'
-      },
-      tokenFormat: {
-        "access-token": "{{ token }}",
-        "token-type":   "Bearer",
-        "client":       "{{ clientId }}",
-        "expiry":       "{{ expiry }}",
-        "uid":          "{{ uid }}"
-      },
-      cookieOps: {
-        path: "/",
-        expires: 9999,
-        expirationUnit: 'days',
-        secure: false,
-        domain: 'domain.com'
-      },
-      parseExpiry: function(headers) {
-        // convert from UTC ruby (seconds) to UTC js (milliseconds)
-        return (parseInt(headers['expiry']) * 1000) || null;
-      },
-      handleLoginResponse: function(response) {
-        return response.data;
-      },
-      handleAccountUpdateResponse: function(response) {
-        return response.data;
-      },
-      handleTokenValidationResponse: function(response) {
-        return response.data;
+      default: { // user
+        apiUrl:                  "<%= ENV['URL'] %>" || "http://localhost:3000"
+        // tokenValidationPath:     '/auth/validate_token',
+        // signOutUrl:              '/auth/sign_out',
+        // emailRegistrationPath:   '/auth',
+        // accountUpdatePath:       '/auth',
+        // accountDeletePath:       '/auth',
+        // // confirmationSuccessUrl:  window.location.href,
+        // passwordResetPath:       '/auth/password',
+        // passwordUpdatePath:      '/auth/password',
+        // passwordResetSuccessUrl: window.location.href,
+        // emailSignInPath:         '/auth/sign_in',
+        // storage:                 'cookies',
+        // forceValidateToken:      false,
+        // validateOnPageLoad:      true,
+        // proxyIf:                 function() { return false; },
+        // proxyUrl:                '/proxy',
+        // omniauthWindowType:      'sameWindow',
+        // authProviderPaths: {
+        //   github:   '/auth/github',
+        //   facebook: '/auth/facebook',
+        //   google:   '/auth/google'
+        // },
+        // tokenFormat: {
+        //   "access-token": "{{ token }}",
+        //   "token-type":   "Bearer",
+        //   "client":       "{{ clientId }}",
+        //   "expiry":       "{{ expiry }}",
+        //   "uid":          "{{ uid }}"
+        // },
+        // cookieOps: {
+        //   path: "/",
+        //   expires: 9999,
+        //   expirationUnit: 'days',
+        //   secure: false,
+        //   domain: 'domain.com'
+        // },
+        // parseExpiry: function(headers) {
+        //   // convert from UTC ruby (seconds) to UTC js (milliseconds)
+        //   return (parseInt(headers['expiry']) * 1000) || null;
+        // },
+        // handleLoginResponse: function(response) {
+        //   return response.data;
+        // },
+        // handleAccountUpdateResponse: function(response) {
+        //   return response.data;
+        // },
+        // handleTokenValidationResponse: function(response) {
+        //   return response.data;
+        // }
       }
-
     },
-    shelter: { // shelter
-      apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000",
-      signOutUrl:            '/auth_shelter/sign_out',
-      emailSignInPath:       '/auth_shelter/sign_in',
-      emailRegistrationPath: '/auth_shelter',
-      accountUpdatePath:     '/auth_shelter',
-      accountDeletePath:     '/auth_shelter',
-      passwordResetPath:     '/auth_shelter/password',
-      passwordUpdatePath:    '/auth_shelter/password',
-      tokenValidationPath:   '/auth_shelter/validate_token'
+    {
+      shelter: { // shelter
+        apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000",
+        signOutUrl:            '/auth_shelter/sign_out',
+        emailSignInPath:       '/auth_shelter/sign_in',
+        emailRegistrationPath: '/auth_shelter',
+        accountUpdatePath:     '/auth_shelter',
+        accountDeletePath:     '/auth_shelter',
+        passwordResetPath:     '/auth_shelter/password',
+        passwordUpdatePath:    '/auth_shelter/password',
+        tokenValidationPath:   '/auth_shelter/validate_token'
+      }
     }
-  }
   ]);
 
 }]);
