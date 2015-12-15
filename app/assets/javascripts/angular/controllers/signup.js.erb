@@ -5,14 +5,11 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$location', '$stateParams', fu
 
     $auth.submitRegistration($scope.publicRegistrationForm)
     .then(function(resp) {
-      console.log('public user')
-      // handle success response
-      // redirect back to root when registration succesfull
+      console.log(resp)
+
       $location.path('/');
     })
     .catch(function(resp) {
-      // handle error response
-      console.log('public user')
       console.log(resp);
     });
   };
@@ -21,17 +18,13 @@ app.controller('SignUpCtrl', ['$scope', '$auth', '$location', '$stateParams', fu
     $auth
     .submitRegistration($scope.registrationForm, {config: "shelter"})
     .then(function(resp) {
-      // redirect back to root when registration succesfull
-      // console.log("HELLOOOOOOOO")
-      // console.log(resp.data.data.id);
+      console.log(resp);
+
       var shelterId = resp.data.data.id;
       $location.path('/shelters/' + shelterId + '/animals');
-      // ^^+add the id for the shelter
     })
     .catch(function(resp) {
-      // handle error response
-      console.log('shelter user')
-      console.log(resp)
+      console.log(resp);
     });
   };
 }])
