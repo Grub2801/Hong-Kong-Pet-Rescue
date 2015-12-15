@@ -1,0 +1,24 @@
+<div class="container">
+
+  <h5><a href="/#/"><i class="fa fa-arrow-left">  Back</i></a></h5>
+  <h1>My name is {{animal.name}}</h1>
+  <img ng-src="{{animal.photo_url}}" width="300" class="img-responsive">
+  <h3>Facts about {{animal.name}}</h3>
+  <h5>Breed: {{animal.breed}}</h5>
+  <h5>Color: {{animal.color}}</h5>
+  <h5>Age: {{animal.age}}</h5>
+  <h5>Sex: {{animal.sex}}</h5>
+  <h5>Size: {{animal.size}}</h5>
+  <h5>{{animal.note}}</h5>
+  <h3><a href="#"><i class="fa fa-heart"></a></i>  Add me to your favorites</h3>
+  <h3><a href="#"><i class="fa fa-envelope"></a></i>  Ask about me</h3>
+  <h3>Help me find a home</h3>
+  <a class="twitter-share-button"
+     href="https://twitter.com/intent/tweet?text={{animal.name}}+needs+a+home+now!+See+me+on+iPet"
+     data-size="large">
+     Tweet</a>
+
+  <h3>Im being cared for by <a href="/#/shelters/{{animal.shelter_id}}/">{{animal.shelter_name}}</a></h3>
+  <h5>{{animal.shelter_description}}</h5>
+
+</div>

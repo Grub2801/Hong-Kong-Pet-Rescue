@@ -1,0 +1,19 @@
+app.factory('ShelterAnimalFactory', ShelterAnimalFactory)
+
+  ShelterAnimalFactory.$inject = ['$resource'];
+
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
+
+  function ShelterAnimalFactory($resource) {
+    return $resource( url + '/api/shelters/:shelterId/animals/:id',
+      {shelterId: '@shelterId', id: '@id'},
+      {'update': { method:'PUT' }}
+    );
+  }
+
+  // {  'get': {method:'GET'},
+  //    'save': {method: 'POST'},
+  //    'query': {method: 'GET', isArray:true},
+  //    'remove': {method:'DELETE'},
+  //    'delete': {method:'DELETE'},
+  //    'firstNme': {get: f(x) } };

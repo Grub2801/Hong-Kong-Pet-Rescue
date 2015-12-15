@@ -1,0 +1,126 @@
+var app = angular.module('animalRescue', ['ngResource', 'ui.router', 'ng-token-auth'])
+
+app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
+  function ($stateProvider, $urlRouterProvider, $authProvider){
+
+  $stateProvider
+    .state('animal', {
+      url: '/animals',
+      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      controller: 'HomeCtrl'
+    })
+    .state('signup', {
+      url: '/admin/signup',
+      templateUrl: "<%= asset_path('auth/signup.html') %>",
+      controller: 'SignUpCtrl'
+    })
+    .state('login', {
+      url: '/admin/login',
+      templateUrl: "<%= asset_path('auth/login.html') %>",
+      controller: 'LoginCtrl'
+    })
+    .state('details', {
+      url: '/animals/:animalId',
+      templateUrl: "<%= asset_path('static_pages/animal_detail.html') %>",
+      controller: 'HomeCtrl'
+    })
+    .state('shelters', {
+      url: '/shelters',
+      templateUrl: "<%= asset_path('static_pages/shelters_index.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelter', {
+      url: '/shelters/:shelterId',
+      templateUrl: "<%= asset_path('static_pages/shelter_detail.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelteranimal', {
+      url: '/shelters/:shelterId/animals',
+      templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
+      controller: 'AdminShelterCtrl'
+    })
+    .state('publicsignup', {
+      url: '/signup',
+      templateUrl: "<%= asset_path('auth/public_signup.html') %>",
+      controller: 'SignUpCtrl'
+    })
+    .state('publiclogin', {
+      url: '/login',
+      templateUrl: "<%= asset_path('auth/public_login.html') %>",
+      controller: 'LoginCtrl'
+    })
+
+
+  $urlRouterProvider.otherwise('/animals');
+
+  $authProvider.configure([
+
+    {
+      default: { // user
+        apiUrl:                  "<%= ENV['URL'] %>" || "http://localhost:3000"
+        // tokenValidationPath:     '/auth/validate_token',
+        // signOutUrl:              '/auth/sign_out',
+        // emailRegistrationPath:   '/auth',
+        // accountUpdatePath:       '/auth',
+        // accountDeletePath:       '/auth',
+        // // confirmationSuccessUrl:  window.location.href,
+        // passwordResetPath:       '/auth/password',
+        // passwordUpdatePath:      '/auth/password',
+        // passwordResetSuccessUrl: window.location.href,
+        // emailSignInPath:         '/auth/sign_in',
+        // storage:                 'cookies',
+        // forceValidateToken:      false,
+        // validateOnPageLoad:      true,
+        // proxyIf:                 function() { return false; },
+        // proxyUrl:                '/proxy',
+        // omniauthWindowType:      'sameWindow',
+        // authProviderPaths: {
+        //   github:   '/auth/github',
+        //   facebook: '/auth/facebook',
+        //   google:   '/auth/google'
+        // },
+        // tokenFormat: {
+        //   "access-token": "{{ token }}",
+        //   "token-type":   "Bearer",
+        //   "client":       "{{ clientId }}",
+        //   "expiry":       "{{ expiry }}",
+        //   "uid":          "{{ uid }}"
+        // },
+        // cookieOps: {
+        //   path: "/",
+        //   expires: 9999,
+        //   expirationUnit: 'days',
+        //   secure: false,
+        //   domain: 'domain.com'
+        // },
+        // parseExpiry: function(headers) {
+        //   // convert from UTC ruby (seconds) to UTC js (milliseconds)
+        //   return (parseInt(headers['expiry']) * 1000) || null;
+        // },
+        // handleLoginResponse: function(response) {
+        //   return response.data;
+        // },
+        // handleAccountUpdateResponse: function(response) {
+        //   return response.data;
+        // },
+        // handleTokenValidationResponse: function(response) {
+        //   return response.data;
+        // }
+      }
+    },
+    {
+      shelter: { // shelter
+        apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000",
+        signOutUrl:            '/auth_shelter/sign_out',
+        emailSignInPath:       '/auth_shelter/sign_in',
+        emailRegistrationPath: '/auth_shelter',
+        accountUpdatePath:     '/auth_shelter',
+        accountDeletePath:     '/auth_shelter',
+        passwordResetPath:     '/auth_shelter/password',
+        passwordUpdatePath:    '/auth_shelter/password',
+        tokenValidationPath:   '/auth_shelter/validate_token'
+      }
+    }
+  ]);
+
+}]);
