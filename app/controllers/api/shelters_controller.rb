@@ -1,6 +1,7 @@
 module Api
   class SheltersController < ApplicationController
-    # before_action :authenticate_shelter!, only: [:create, :update, :destroy]
+    before_action :authenticate_shelter!, only: [:create, :update, :destroy]
+    before_filter :process_params, only: [:create, :update]
     before_action :set_shelter, only: [:show, :update, :destroy]
 
     def index # public
@@ -37,6 +38,14 @@ module Api
     end
 
   private
+
+    def process_params
+      params[:shelter] = JSON.parse(params[:shelter]).with_indifferent_access
+      if params[:file]
+        params[:animal][:avatar] = params[:file]
+      end
+    end
+
     def set_shelter
       @shelter = Shelter.find_by(id: params[:id])
       if @shelter.nil?
@@ -45,7 +54,7 @@ module Api
     end
 
     def shelter_params
-      params.require(:shelter).permit(:name, :address, :location, :phone, :email, :website, :donation_info, :description, :image_url)
+      params.require(:shelter).permit(:name, :address, :location, :phone, :email, :website, :donation_info, :description, :avatar)
     end
   end
 end

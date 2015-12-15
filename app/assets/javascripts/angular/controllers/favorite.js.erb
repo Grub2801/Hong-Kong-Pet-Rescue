@@ -1,23 +1,24 @@
-app.controller('FavoriteCtrl', ['$scope', '$auth', '$http', 'FavoriteFactory', '$stateParams', function ($scope, $auth, $http, FavoriteFactory, $stateParams){
+app.controller('FavoriteCtrl', ['$scope', '$auth', '$http', 'UserFactory', 'FavoriteFactory', '$stateParams', function ($scope, $auth, $http, UserFactory, FavoriteFactory, $stateParams){
   console.log('FavoriteCtrl')
-
   var Favorite = FavoriteFactory
-  $scope.favorites = FavoriteFactory.query();
 
-  console.log($scope.favorites)
+  $scope.favorites = FavoriteFactory.query();
 
   //delete favorite
   $scope.deleteFavorite = function (favorite){
-    Favorite.delete({id: favorite._id });
+    Favorite.delete({id: favorite.id });
     var index = $scope.favorites.indexOf(favorite);
     $scope.favorites.splice(index, 1);
   }
 
   // post a new favorite animal
   $scope.addFavorites = function () {
-    Favorite.save({animal_id: $stateParams.animalId}, $scope.favorite, function (favorite) {
-      $scope.favorites.push(favorite);
-      });
+    if (UserFactory.identity) {
+      Favorite.save({animal_id: $stateParams.animalId}, $scope.favorite, function (favorite) {
+        $scope.favorites.push(favorite);
+        });
+      } else {
+      $scope.alert = true
     }
-
+  }
 }])

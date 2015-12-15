@@ -18,10 +18,15 @@
       <label>Breed</label>
       <input type="text" name="breed" ng-model="shelterAnimal.breed">
     </div>
-    <div>
+    <div class="form-group">
+      <label>Photo attachment</label>
+      <input type="file" ngf-select ng-model="shelterAnimal.avatar" />
+    </div>
+
+<!--     <div>
       <label>Photo</label>
       <input type="text" name="photo_url" ng-model="shelterAnimal.photo_url">
-    </div>
+    </div> -->
     <div>
       <label>Sex</label>
       <select name="sex" ng-model="shelterAnimal.sex">
@@ -56,8 +61,8 @@
     </div>
     <div>
       <input ng-hide="editing" class="btn btn-add" type="submit" value="Add animal">
-      <input ng-show="editing" ng-click="editing = false" class="btn btn-save" type="submit" value="Save">
-      <input ng-show="editing" class="btn btn-cancel" type="submit" value="Cancel">
+      <input ng-show="editing" ng-click="displayAddButton()" class="btn btn-save" type="submit" value="Save">
+      <input ng-show="editing" ng-click="displayAddButton()" class="btn btn-cancel" type="submit" value="Cancel">
     </div>
   </form>
 </div>

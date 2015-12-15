@@ -2,5 +2,6 @@
 
 <div ng-repeat="favorite in favorites">
   <h1>{{favorite.name}}</h1>
-  <div>{{favorite}}</div>
+  <!-- <div>{{favorite}}</div> -->
+  <a ng-click="deleteFavorite(favorite)">delete</a>
 </div>

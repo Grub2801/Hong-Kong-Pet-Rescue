@@ -1,8 +1,10 @@
 module Api
   class AnimalsController < ApplicationController
-    # before_action :authenticate_shelter!, only: [:create, :udpate, :destroy]
-    before_action :set_shelter, only: [:create, :udpate, :destroy]
+    before_action :authenticate_shelter!, only: [:create, :udpate, :destroy]
+    before_action :set_shelter, only: [:create, :update, :destroy]
     before_action :set_shelter_animal, only: [:update, :destroy]
+    # before_filter :process_params, only: [:create, :update]
+
 
     def index # public
       if params[:shelter_id]
@@ -50,6 +52,16 @@ module Api
     end
 
   private
+
+    def process_params
+      binding.pry
+
+      params[:animal] = JSON.parse(params[:animal]).with_indifferent_access
+      if params[:file]
+        params[:animal][:avatar] = params[:file]
+      end
+    end
+
     def set_shelter
       @shelter = Shelter.find_by(id: params[:shelter_id])
       if @shelter.nil?
@@ -65,7 +77,7 @@ module Api
     end
 
     def animal_params
-      params.require(:animal). permit(:specie, :color, :breed, :age, :size, :sex, :name, :note, :photo_url)
+      params.require(:animal). permit(:specie, :color, :breed, :age, :size, :sex, :name, :note, :avatar)
     end
 
   end

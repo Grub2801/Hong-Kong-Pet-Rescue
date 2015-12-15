@@ -6,6 +6,13 @@ app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFa
   //show animals that belong to one shelter
   $scope.shelterAnimals = ShelterAnimals.query({shelterId:$stateParams.shelterId})
 
+  $scope.displayEditButtons = function () {
+    $scope.editing = true;
+  }
+  $scope.displayAddButton = function () {
+    $scope.editing = false;
+  }
+
   //delete an animal from a shelter
   $scope.deleteAnimal = function (id){
     ShelterAnimals.delete({shelterId: $stateParams.shelterId, id: id }, function (resp) {

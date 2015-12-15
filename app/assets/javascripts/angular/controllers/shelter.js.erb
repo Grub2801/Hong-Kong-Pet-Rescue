@@ -1,6 +1,10 @@
 app.controller('ShelterCtrl', ['$scope', '$auth', '$http', 'ShelterFactory', '$stateParams', '$state', function ($scope, $auth, $http, ShelterFactory, $stateParams, $state){
   var ShelterList = ShelterFactory;
 
+  $scope.showAnimals = function () {
+    $scope.show = true;
+  }
+
   if ($state.current.name == "shelters") { // index
     $scope.allShelters = ShelterList.query();
   } else { // show
