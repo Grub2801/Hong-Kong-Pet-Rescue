@@ -6,32 +6,32 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
   $stateProvider
     .state('animal', {
       url: '/animals',
-      templateUrl: "<%= asset_path('static_pages/index.html') %>",
+      templateUrl: "<%= asset_path('animals/index.html') %>",
       controller: 'AnimalCtrl'
     })
     .state('details', {
       url: '/animals/:animalId',
-      templateUrl: "<%= asset_path('static_pages/animal_detail.html') %>",
+      templateUrl: "<%= asset_path('animals/show.html') %>",
       controller: 'AnimalCtrl'
     })
     .state('shelters', {
       url: '/shelters',
-      templateUrl: "<%= asset_path('static_pages/shelters_index.html') %>",
+      templateUrl: "<%= asset_path('shelters/index.html') %>",
       controller: 'ShelterCtrl'
     })
     .state('shelter', {
       url: '/shelters/:shelterId',
-      templateUrl: "<%= asset_path('static_pages/shelter_detail.html') %>",
+      templateUrl: "<%= asset_path('shelters/show.html') %>",
       controller: 'ShelterCtrl'
     })
     .state('shelteranimal', {
       url: '/shelters/:shelterId/animals',
-      templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
+      templateUrl: "<%= asset_path('shelters/new.html') %>",
       controller: 'AdminShelterCtrl'
     })
     .state('favorite' , {
       url: '/favorites',
-      templateUrl: "<%= asset_path('static_pages/favorites.html') %>",
+      templateUrl: "<%= asset_path('favorites/index.html') %>",
       controller: 'FavoriteCtrl'
     })
     .state('signup', {
