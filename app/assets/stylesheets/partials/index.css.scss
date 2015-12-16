@@ -28,6 +28,7 @@ div.animal-card {
 div.container.ng-scope > div.col-xs-12.animal-card > div > img {
   width: 100%;
   display: block;
+  overflow: hidden;
 }
 
 #animal-index {
