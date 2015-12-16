@@ -9,7 +9,11 @@ app.controller('AnimalCtrl', ['$scope', '$auth', '$http', 'AnimalFactory', '$sta
   // });
 
   if ($state.current.name == "animal") { // index
-    $scope.animals = AnimalList.query();
+
+    $scope.animals = AnimalList.query(function (){
+    console.log($scope.animals)
+
+    });
   } else { // show
     $scope.animal = AnimalList.get({id: $stateParams.animalId})
   }
