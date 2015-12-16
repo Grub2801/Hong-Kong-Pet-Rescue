@@ -3,7 +3,7 @@ app.controller('FavoriteCtrl', ['$scope', '$auth', '$http', 'UserFactory', 'Favo
   var Favorite = FavoriteFactory
 
   $scope.favorites = FavoriteFactory.query();
-  // window.debug = $scope.favorites;
+  window.debug = $scope.favorites;
 
   //delete favorite
   $scope.deleteFavorite = function (favorite){

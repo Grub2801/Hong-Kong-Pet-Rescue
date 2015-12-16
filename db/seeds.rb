@@ -60,6 +60,7 @@ Animal.create([
       name: "Bonnie",
       note: "",
       image: "http://hongkongcats.org/wp-content/uploads/2015/09/bonnie.jpg",
+      avatar: "bonnie.jpg",
       shelter_id: Shelter.last.id
     },
    {specie: "cat",
@@ -71,6 +72,7 @@ Animal.create([
       name: "Storm",
       note: "",
       image: "http://hongkongcats.org/wp-content/uploads/2015/09/storm.jpg",
+      avatar: "storm.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "cat",
@@ -82,6 +84,7 @@ Animal.create([
       name: "Jacky",
       note: "My name is Jacky. I am a Tabby & White Male Domestic Short Hair and I was rescued from Cat Colony Care Programme.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/376766.jpg",
+      avatar: "jacky.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "cat",
@@ -93,6 +96,7 @@ Animal.create([
       name: "Rendy",
       note: "My name is Rendy. I am a Tabby Female Domestic Long Hair(Spayed) and I was rescued by Inspectors.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/372039.jpg",
+      avatar: "rendy.jpg",
       shelter_id: Shelter.last.id
     },
     {specie: "cat",
@@ -104,6 +108,7 @@ Animal.create([
       name: "Kimchi",
       note: "My name is Kimchi. I am a Ginger & White Male Domestic Short Hair and I was rescued by Inspectors.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/371842.jpg",
+      avatar: "kimchi",
       shelter_id: Shelter.first.id
     },
     {specie: "reptile & fish",
@@ -115,6 +120,7 @@ Animal.create([
       name: "Merry",
       note: "My name is Merry. I am a Green Unknown Red Eared Slider Terrapin and I was Abandoned by Owner.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/376783.jpg",
+      avatar: "merry.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "reptile & fish",
@@ -126,6 +132,7 @@ Animal.create([
       name: "Kai Kai",
       note: "My name is Kai Kai. I am a Green Unknown Turtle Other and I was Abandoned by Owner.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/375697.jpg",
+      avatar: "kai_kai.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "reptile & fish",
@@ -137,6 +144,7 @@ Animal.create([
       name: "Christmas",
       note: "My name is Christmas. I am a Green Unknown Red Eared Slider Terrapin and I was Abandoned by Owner.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/376785.jpg",
+      avatar: "christmas.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "rodent",
@@ -148,6 +156,7 @@ Animal.create([
       name: "Jay",
       note: "My name is Jay . I am a Grey Male Chinchilla and I was Abandoned by Owner.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/376045.jpg",
+      avatar: "jay.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "rodent",
@@ -159,6 +168,7 @@ Animal.create([
       name: "Makie",
       note: "My name is Makie. I am a White Female Guinea Pig and I was rescued from Other Shelter.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/376051.jpg",
+      avatar: "makie.jpg",
       shelter_id: Shelter.last.id
     },
     {specie: "rabbit",
@@ -170,6 +180,7 @@ Animal.create([
       name: "Tommy",
       note: "My name is Tommy. I am a White Male Domestic(Desexed) and I was Abandoned by Owner.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/354482.jpg",
+      avatar: "tommy.jpg",
       shelter_id: Shelter.last.id
     },
     {specie: "dog",
@@ -181,6 +192,7 @@ Animal.create([
       name: "Olive",
       note: "Olive was quite shy when she was younger but she has grown in confidence over the months and is now a very sweet and loving girl. You can meet her any Sunday at Whiskers N Paws, or any other day by arrangement. ",
       image: "http://www.hongkongdogrescue.com/wp-content/uploads/2014/11/Olive.jpg",
+      avatar: "Olive.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "dog",
@@ -192,6 +204,7 @@ Animal.create([
       name: "Jerry",
       note: "",
       image: "http://www.hongkongdogrescue.com/wp-content/uploads/2015/12/Jerry.jpg",
+      avatar: "Jerry.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "dog",
@@ -203,6 +216,7 @@ Animal.create([
       name: "Panda",
       note: "",
       image: "http://www.hongkongdogrescue.com/wp-content/uploads/2015/12/Panda.jpg",
+      avatar: "Panda.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "dog",
@@ -214,6 +228,7 @@ Animal.create([
       name: "Raven",
       note: "Raven is a beautiful young girl with a glossy all black coat. Not only does she have gorgeous looks, but also a sweet personality. She easily fits in with other dogs and is really happy to be with people and loves going out for walks. Raven is a ball of energy and can't stop jumping around with joy. She would need a home where she can get lots of exercise to expend all her energy. Raven loves playing fetch with any toys she can get.",
       image: "http://www.hongkongdogrescue.com/wp-content/uploads/2015/12/Raven-900x444.jpg",
+      avatar: "Raven.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "dog",
@@ -225,6 +240,7 @@ Animal.create([
       name: "Roofie",
       note: "Roofie is a very relaxed and sweet natured boy. He has such a gentle disposition and is always quiet and calm. He gets along very well with other dogs and people. He is very polite, asking nicely for pats and is in no way demanding. He is toilet trained and loves going for walks and spending time with people. Roofie is small to medium sized making him perfect for HK apartment living. Please come meet this gentle guy in Tai Po! ",
       image: "http://www.hongkongdogrescue.com/wp-content/uploads/2015/12/Roofie.jpg",
+      avatar: "Roofie.jpg",
       shelter_id: Shelter.first.id
     },
     {specie: "cat",
@@ -236,6 +252,7 @@ Animal.create([
       name: "Bella",
       note: "Gorgeous ginger girl Bella loves talking – but she loves being scratched under her chin even more; just start rubbing her there and the talking stops, replaced by super-loud purring! And apart from being a total lovebug, she also loves watching TV... especially wildlife documentaries (she has a particular interest in groundhogs!).",
       image: "http://www.hkalleycatwatch.com/photo//Bella/Bella%201.JPG",
+      avatar: "Bella.JPG",
       shelter_id: Shelter.last.id
     },
     {specie: "cat",
@@ -247,6 +264,7 @@ Animal.create([
       name: "MeiMei",
       note: "Mei Mei is three years old. Her name means ‘Beautiful Tail’ in Chinese. She was separated from her mum and siblings as a kitten and rescued from a condemned building. She loves to be petted and is very smart, responding to her name when called. Mei Mei should get along well with other cats as she is quite submissive. She is a beautiful cat with a sweet temperament. However, she doesn’t like to be held and is very shy until she is familiar with her environment. Mei Mei needs her own forever family! Can you help?",
       image: "http://www.hkalleycatwatch.com/photo//AnotherMeiMei/Meiimei.jpg",
+      avatar: "Meimei.jpg",
       shelter_id: Shelter.last.id
     },
     {specie: "cat",
@@ -258,6 +276,7 @@ Animal.create([
       name: "Bruce",
       note: "Bruce is looking for new home. He was rescued from a storm drain in Shek O and hand-reared after being separated from his mother during a storm when he was only a day old. This 2 year old healthy, handsome guy is an affectionate, playful lap cat that needs a bit of attention and love each day. Sadly he can sometimes be a little too playful for our small children and their friends and he’s looking for a child-free home where he can have some quiet and an owner who is able to pet him and play with him. He was raised with dogs during his early weeks, so should be okay in a dog-friendly household. ",
       image: "http://www.hkalleycatwatch.com/photodata//Bruce/thumbnails/Brucenew2.jpg",
+      avatar: "bruce.jpg",
       shelter_id: Shelter.last.id
     },
     {specie: "dog",
@@ -269,6 +288,7 @@ Animal.create([
       name: "thomas",
       note: "My name is Thomas. I am a Chocolate Male Mongrel(Neutered) and I was rescued from a prosecution case.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/322504.jpg",
+      avatar: "thomas.jpg",
       shelter_id: Shelter.last.id
     },
     {specie: "dog",
@@ -280,6 +300,7 @@ Animal.create([
       name: "samiya",
       note: "Samiya is a black and brindle colored mixed breed puppy girl. Sweet and passionate. She loves to interact with people and like to be reward with pat. She is looking for someone likes to teach her all good manners to be calm and polite.",
       image: "http://main.spca.org.hk/kennelform2/animalphotos/l/348794.jpg",
+      avatar: "samiya.jpg",
       shelter_id: Shelter.last.id
     }
   ])

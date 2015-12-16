@@ -1,5 +1,13 @@
+#favorites {
+  .favorite-animals {
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+
 div.ng-scope {
   color: #5a5255;
+  // text-transform: capitalize;
 }
 
 h3 > a {
@@ -12,12 +20,6 @@ h3 > a:hover {
   color: #559e83;
 }
 
-#favorites {
-  .favorite-animals {
-    flex-wrap: wrap;
-    display: flex;
-  }
-}
 
 div.animal-card {
   flex-wrap: wrap;
