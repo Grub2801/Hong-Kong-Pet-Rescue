@@ -29,6 +29,7 @@ div.container.ng-scope > div.col-xs-12.animal-card > div > img {
   width: 100%;
   display: block;
   overflow: hidden;
+  height: 100px;
 }
 
 #animal-index {
@@ -42,8 +43,9 @@ div.container.ng-scope > div.col-xs-12.animal-card > div > img {
     color: #fff;
     border-radius: 40px;
 
-  #card {
-    max-width: 300px;
+  // #card {
+  //   overflow: hidden;
+  //   height: 355px;
   }
 }
 
@@ -58,6 +60,13 @@ div#card {
   margin-bottom: .75rem;
   background-color: #fff;
   border-radius: .25rem;
+  overflow: hidden;
+  height: 400px;
+  margin-top: 30px;
+}
+
+div#card:hover {
+  background-color: #eee;
 }
 
 select.form-control{
@@ -74,4 +83,4 @@ button.btn-outline:hover {
   color: white;
   background-color: rgba(27, 133, 184, 0.8);
 }
-}
+
