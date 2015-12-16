@@ -1,69 +1,88 @@
 <div id="post-animal" class="container well">
   <form name="newAnimal" ng-submit="formSubmit()" enctype='multipart/form-data'>
-    <div>
-      <label>Name</label>
-      <input type="text" name="name" ng-model="shelterAnimal.name">
+    <div class="col-xs-6">
+      <div class="col-xs-2">
+        <label>Name</label>
+      </div>
+      <div class="col-xs-4">
+        <input type="text" name="name" ng-model="shelterAnimal.name">
+      </div>
     </div>
-    <div>
-      <label>Animal</label>
-      <select name="specie" ng-model="shelterAnimal.specie">
-        <option>dog</option>
-        <option>cat</option>
-        <option>reptile & fish</option>
-        <option>rabbit</option>
-        <option>rodent</option>
-      </select>
+    <div class="col-xs-6">
+      <div>
+        <label class="col-xs-2">Animal</label>
+        <select class="col-xs-6"name="specie" ng-model="shelterAnimal.specie">
+          <option>dog</option>
+          <option>cat</option>
+          <option>reptile & fish</option>
+          <option>rabbit</option>
+          <option>rodent</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <label>Breed</label>
-      <input type="text" name="breed" ng-model="shelterAnimal.breed">
+    <div class="col-xs-6">
+      <div class="col-xs-2">
+        <label>Breed</label>
+      </div>
+      <div class="col-xs-4">
+        <input type="text" name="breed" ng-model="shelterAnimal.breed">
+      </div>
     </div>
-    <div class="form-group">
-      <label>Photo attachment</label>
-      <input class="button" type="file" ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="10MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}"> Select
+    <div class="col-xs-6">
+      <div class="col-xs-2">
+        <label>Photo</label>
+      </div>
+      <div class="col-xs-4">
+        <input class="button" type="file" ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="10MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">
+        <img ngf-thumbnail="avatar" class="thumb">
+      </div>
     </div>
-
-    <img ngf-thumbnail="avatar" class="thumb">
-<!--     <div>
-      <label>Photo</label>
-      <input type="text" name="photo_url" ng-model="shelterAnimal.photo_url">
-    </div> -->
-    <div>
-      <label>Sex</label>
-      <select name="sex" ng-model="shelterAnimal.sex">
-        <option>female</option>
-        <option>male</option>
-      </select>
+    <div class="col-xs-6">
+      <div>
+        <label class="col-xs-2">Sex</label>
+        <select class="col-xs-4" name="sex" ng-model="shelterAnimal.sex">
+          <option>female</option>
+          <option>male</option>
+        </select>
+      </div>
+      <div class="col-xs-6">
+        <label class="col-xs-2">Age</label>
+        <select class="col-xs-4" type="text" name="age" ng-model="shelterAnimal.age">
+          <option>baby</option>
+          <option>young</option>
+          <option>adult</option>
+          <option>senior</option>
+        </select>
+      </div>
+      <div class="col-xs-6">
+        <div class="col-xs-2">
+          <label>Color</label>
+        </div>
+        <div class="col-xs-4"
+          <input type="text" name="color" ng-model="shelterAnimal.color">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="col-xs-2">
+          <label>Notes</label>
+          <input type="text" name="note" ng-model="shelterAnimal.note">
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <label class="col-xs-2">Size</label>
+        <select class="col-xs-4" type="text" name="size" ng-model="shelterAnimal.size">
+          <option>small</option>
+          <option>medium</option>
+          <option>large</option>
+        </select>
+      </div>
     </div>
-    <div>
-      <label>Age</label>
-      <select type="text" name="age" ng-model="shelterAnimal.age">
-        <option>baby</option>
-        <option>young</option>
-        <option>adult</option>
-        <option>senior</option>
-      </select>
-    </div>
-    <div>
-      <label>Color</label>
-      <input type="text" name="color" ng-model="shelterAnimal.color">
-    </div>
-    <div>
-      <label>Notes</label>
-      <input type="text" name="note" ng-model="shelterAnimal.note">
-    </div>
-    <div>
-      <label>Size</label>
-      <select type="text" name="size" ng-model="shelterAnimal.size">
-        <option>small</option>
-        <option>medium</option>
-        <option>large</option>
-      </select>
-    </div>
-    <div>
-      <input ng-hide="editing" class="btn btn-add"    type="submit" value="Add animal">
-      <input ng-show="editing" class="btn btn-save"   type="submit" value="Save"   ng-click="displayAddButton();">
-      <input ng-show="editing" class="btn btn-cancel" type="submit" value="Cancel" ng-click="displayAddButton()">
+    <div class="col-xs-12"
+      <div>
+        <input ng-hide="editing" class="btn btn-add"    type="submit" value="Add animal">
+        <input ng-show="editing" class="btn btn-save"   type="submit" value="Save"   ng-click="displayAddButton();">
+        <input ng-show="editing" class="btn btn-cancel" type="submit" value="Cancel" ng-click="displayAddButton()">
+      </div>
     </div>
   </form>
 </div>
