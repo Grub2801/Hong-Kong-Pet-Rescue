@@ -53,14 +53,14 @@ module Api
 
   private
 
-    def process_params
-      binding.pry
+    # def process_params
+    #   binding.pry
 
-      params[:animal] = JSON.parse(params[:animal]).with_indifferent_access
-      if params[:file]
-        params[:animal][:avatar] = params[:file]
-      end
-    end
+    #   params[:animal] = JSON.parse(params[:animal]).with_indifferent_access
+    #   if params[:file]
+    #     params[:animal][:avatar] = params[:file]
+    #   end
+    # end
 
     def set_shelter
       @shelter = Shelter.find_by(id: params[:shelter_id])
@@ -77,7 +77,7 @@ module Api
     end
 
     def animal_params
-      params.permit(:specie, :color, :breed, :age, :size, :sex, :name, :note, :avatar)
+      params.require(:animal).permit(:specie, :color, :breed, :age, :size, :sex, :name, :note, :avatar)
     end
 
   end

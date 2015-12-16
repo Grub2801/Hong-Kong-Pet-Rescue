@@ -5,6 +5,7 @@ module Api
 
     def index
       @favorites = current_user.favorites
+      render 'index.jbuilder'
     end
 
     def create

@@ -37,16 +37,10 @@
         <label>Description</label>
         <textarea name="description" ng-model="registrationForm.description" required="required" class="form-control" rows="3" placeholder="Tell us about your organisation"></textarea>
       </div>
-      <div class="form-group">
-        <label>Photo attachment</label>
-        <input type="file" ngf-select ng-model="registrationForm.avatar" />
+      <div>
+        <label>Photo</label>
+        <input type="text" name="image" ng-model="shelterAnimal.image">
       </div>
-
-      <!-- <div class="form-group">
-        <label for="InputFile">Image input</label>
-        <input type="file" id="InputFile">
-        <p class="help-block">Select a photo or logo to upload to the site</p>
-      </div> -->
       <div class="form-group">
         <label>Email</label>
         <input type="email" name="email" ng-model="registrationForm.email" required="required" class="form-control" placeholder="Enter Email"/>

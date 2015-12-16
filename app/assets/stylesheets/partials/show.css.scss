@@ -1,16 +1,19 @@
-.img-responsive {
-  margin: 15px auto;
-}
+#animal-show {
 
-img {
-  vertical-align: middle;
-  border-radius: 20px;
-}
+  .img-responsive {
+    margin: 15px auto;
+  }
 
-body {
-  color:  #5a5255 !important;
-}
+  img {
+    vertical-align: middle;
+    border-radius: 20px;
+  }
 
-i.fa.fa-arrow-left {
-  color:  #5a5255;
+  body {
+    color:  #5a5255 !important;
+  }
+
+  i.fa.fa-arrow-left {
+    color:  #5a5255;
+  }
 }

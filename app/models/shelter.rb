@@ -7,11 +7,6 @@ class Shelter < ActiveRecord::Base
 
   has_many :animals
 
-  has_attached_file :avatar, styles: { medium: "300x300>", thumb: "100x100>" }, default_url: "dog.png", s3_permissions: private
-
-  validates_attachment_content_type :avatar, content_type: ["image/jpeg", "image/png"]
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
   before_validation :format_values
 
   def format_values

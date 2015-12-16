@@ -1,7 +1,5 @@
-<div>
-  <img ng-src="{{animal.avatar.$ngfName}}" width="200">
-  <a href="/#/animals/{{animal.id}}">{{animal.name}}</a>
-  <h6>{{ animal.location }}</h6>
-  <h6>{{ animal.sex }} | {{ animal.age }}</h6>
-  <h6><span><img ng-src="{{ animal_icon(animal) }}" alt="{{animal.specie}}"></span>{{ animal.specie }}</h6>
-</div>
+    <img ng-src="{{animal.avatar}}" width="200">
+    <h3><a href="/#/animals/{{animal.id}}">{{animal.name}}</a></h3>
+    <h5>{{ animal.location }}</h5>
+    <h5>{{ animal.sex }} | {{ animal.age }}</h5>
+    <h5><span><img ng-src="{{ animal_icon(animal) }}" alt="{{animal.specie}}"></span>{{ animal.specie }}</h5>

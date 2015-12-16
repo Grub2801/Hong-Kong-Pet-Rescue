@@ -1,14 +1,11 @@
-<div class="container">
+<div id="animal-index" class="container">
   <div>
-    <h1>Welcome {{user.email}}</h1>
+    <h2>Welcome {{user.email}}</h2>
   </div>
   <animal-search-form></animal-search-form>
-  <section id="card" class='container-fluid'>
-  <div class="grid js-masonry"
-    data-masonry-options='{ "columnWidth": 200, "gutter": 20, "itemSelector": ".grid-item" }'>
-    <div ng-repeat="animal in animals | filter:location | filter:specie | filter:sex | filter:age | filter:size | orderBy:'-created_at'" >
-    <animal-index-card animal="animal" class="grid-item" ></animal-index-card>
+  <div class="col-xs-12 animal-card">
+    <div class="col-xs-12 col-sm-6 col-md-4 pull-left" ng-repeat="animal in animals | filter:location | filter:specie | filter:sex | filter:age | filter:size | orderBy:'-created_at'" >
+      <animal-index-card animal="animal" class="grid-item" ></animal-index-card>
     </div>
   </div>
-  </section>
 </div>

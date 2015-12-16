@@ -31,23 +31,58 @@ app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'Shelt
   }
 
   // post a new animal
-  $scope.addAnimal = function (id) {
+  $scope.updateAnimal = function () {
+    var id = $scope.shelterAnimal.id;
+    console.log('UPDATE STARTED!! --> id: ', id);;
+    console.log($scope.avatar);;
+
+    ShelterAnimals
+      .update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal,
+        function (resp) {
+          console.log('Animal updated', resp);
+
+          debugger
+
+          Upload
+            .upload({
+              url: url + '/api/shelters/' + $scope.shelterAnimal.shelter_id + '/animals/' + $scope.shelterAnimal.id,
+              data: {animal: {avatar: file}},
+              method: 'PUT',
+            })
+            .then(function (resp) {
+              console.log("-----------------resp-------------->");
+              console.log(resp);
+              $scope.shelterAnimal = {};
+            }, function (resp) {
+              console.log('Error status: ' + resp.status);
+            }, function (evt) {
+              var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+              // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
+
+        }, function (resp) {
+          console.log(resp);
+        }
+      );
+  }
+
+
+  $scope.addAnimal = function () {
+    ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
+      console.log(shelterAnimal);
+      $scope.shelterAnimals.push(shelterAnimal);
+      // $scope.shelterAnimal = {};
+    }, function (resp) {
+      console.log(resp);
+    });
+  }
+
+  $scope.formSubmit = function () {
+    // If we have an id, let's edit
     if ($scope.shelterAnimal.id) {
-      var id = $scope.shelterAnimal.id;
-      ShelterAnimals.update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal, function (resp) {
-        console.log(resp);
-        $scope.shelterAnimal = {};
-      }, function (resp) {
-        console.log(resp);
-      });
+      $scope.updateAnimal()
     } else {
-      ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
-        console.log(shelterAnimal);
-        $scope.shelterAnimals.push(shelterAnimal);
-        $scope.shelterAnimal = {};
-      }, function (resp) {
-        console.log(resp);
-      });
+      $scope.addAnimal()
     }
   }
 
@@ -62,24 +97,4 @@ app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'Shelt
   //   }
   // }
 
-  // upload later on form submit or something similar
-  $scope.submit = function() {
-   Upload.upload({
-        url: url + '/api/shelters/' + $scope.shelterAnimal.shelter_id + '/animals/' + $scope.shelterAnimal.id,
-        data: {file: $scope.shelterAnimal.avatar},
-        method: 'PUT'
-      }).then(function (resp) {
-        console.log(resp);
-      }, function (resp) {
-        console.log('Error status: ' + resp.status);
-      }, function (evt) {
-        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-        // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-      });
-  };
-
-  // upload on file select or drop
-  $scope.upload = function () {
-
-  };
 }])
