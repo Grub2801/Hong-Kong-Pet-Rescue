@@ -21,6 +21,7 @@ gem 'aws-sdk', '~> 1.6'
 group :development, :test do
   gem 'byebug'
   gem 'pry-rails'
+  gem 'dotenv-rails'
 end
 
 group :development do

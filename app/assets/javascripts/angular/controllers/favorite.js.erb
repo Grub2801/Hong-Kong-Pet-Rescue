@@ -3,13 +3,16 @@ app.controller('FavoriteCtrl', ['$scope', '$auth', '$http', 'UserFactory', 'Favo
   var Favorite = FavoriteFactory
 
   $scope.favorites = FavoriteFactory.query();
-  window.debug = $scope.favorites;
 
   //delete favorite
   $scope.deleteFavorite = function (favorite){
-    Favorite.delete({id: favorite.id });
-    var index = $scope.favorites.indexOf(favorite);
-    $scope.favorites.splice(index, 1);
+    Favorite.delete({id: favorite.id }, function(response){
+      console.log(response)
+      var index = $scope.favorites.indexOf(favorite);
+      $scope.favorites.splice(index, 1);
+    }, function(response){
+      console.log(response)
+    });
   }
 
   // post a new favorite animal

@@ -27,8 +27,8 @@ module Api
 
     private
     def set_favorite
-      @favorite = Favorite.find(params[:id])
-      if @favorites.nil?
+      @favorite = Favorite.find_by(id: params[:id])
+      if @favorite.nil?
         render json: {message: "Favorite not found"}, status: 404
       end
     end

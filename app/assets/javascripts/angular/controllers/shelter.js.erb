@@ -7,6 +7,7 @@ app.controller('ShelterCtrl', ['$scope', '$auth', '$http', 'ShelterFactory', '$s
 
   if ($state.current.name == "shelters") { // index
     $scope.allShelters = ShelterList.query();
+    window.debug = $scope.allShelters;
   } else { // show
     $scope.shelter = ShelterList.get({id: $stateParams.shelterId})
   }

@@ -4,6 +4,7 @@ app.directive('animalIndexCard', function (){
     templateUrl:"<%= asset_path('partials/_animalIndexCard.html') %>",
     scope: {
       animal: "="
-    }
+    },
+    controller: "AnimalIndexCardCtrl"
   }
 })

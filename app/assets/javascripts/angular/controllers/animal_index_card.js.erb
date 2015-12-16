@@ -1,0 +1,17 @@
+app.controller('AnimalIndexCardCtrl', ['$scope', function ($scope){
+  $scope.animalIcon = function (animal) {
+    if (animal.specie == "dog") {
+      return "<%= asset_path('dog.png') %>";
+    } if (animal.specie == "cat") {
+      return "<%= asset_path('cat.svg') %>";
+    } if (animal.specie == "rodent") {
+      return "<%= asset_path('rodent.gif') %>";
+    } if (animal.specie == "rabbit") {
+      return "<%= asset_path('rabbit.png') %>";
+    } if (animal.specie == "fish & reptile") {
+      return "<%= asset_path('turtle.png') %>";
+    } else {
+      return "<%= asset_path('pet.jpg') %>";
+    }
+  }
+}]);
