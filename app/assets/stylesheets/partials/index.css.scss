@@ -20,31 +20,57 @@ h3 > a:hover {
   color: #559e83;
 }
 
-
 div.animal-card {
   flex-wrap: wrap;
   display: flex;
 }
 
+div.container.ng-scope > div.col-xs-12.animal-card > div > img {
+  width: 100%;
+  display: block;
+}
+
 #animal-index {
+  div.ng-scope {
+  color: #5a5255;
+  text-transform: capitalize;
+  }
+
   #search-form {
     background-color: rgba(195, 203, 113, 0.5);
     color: #fff;
     border-radius: 40px;
-  }
 
-  select.form-control{
-    color: #5a5255;
+  #card {
+    max-width: 300px;
   }
+}
 
-  button.btn-outline {
-    background-color: rgba(27, 133, 184, 0.1);
-    border: 2px solid white;
-    border-radius: 20px;
-  }
+img#icon {
+  margin-top: 20px;
+  width: 50px;
+}
 
-  button.btn-outline:hover {
-    color: white;
-    background-color: rgba(27, 133, 184, 0.8);
-  }
+div#card {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border-radius: .25rem;
+}
+
+select.form-control{
+  color: #5a5255;
+}
+
+button.btn-outline {
+  background-color: rgba(27, 133, 184, 0.1);
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+button.btn-outline:hover {
+  color: white;
+  background-color: rgba(27, 133, 184, 0.8);
+}
 }
