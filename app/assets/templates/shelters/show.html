@@ -9,9 +9,9 @@
   <h5>Description: {{shelter.description}}</h5>
   <h5>Donate: {{shelter.donation_info}}</h5>
   <div>
-    <h5><a href="">View our animals</a></h5>
+    <h5><a ng-hide="show" ng-click="showAnimals()">View our animals</a></h5>
   </div>
   <div>
-    <shelter-animal-list></shelter-animal-list>
+    <shelter-animal-list ng-show="show"></shelter-animal-list>
   </div>
 </div>

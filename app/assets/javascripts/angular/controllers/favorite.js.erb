@@ -1,23 +1,42 @@
-app.controller('FavoriteCtrl', ['$scope', '$auth', '$http', 'FavoriteFactory', '$stateParams', function ($scope, $auth, $http, FavoriteFactory, $stateParams){
+app.controller('FavoriteCtrl', ['$scope', '$auth', '$http', 'UserFactory', 'FavoriteFactory', '$stateParams', function ($scope, $auth, $http, UserFactory, FavoriteFactory, $stateParams){
   console.log('FavoriteCtrl')
-
   var Favorite = FavoriteFactory
-  $scope.favorites = FavoriteFactory.query();
 
-  console.log($scope.favorites)
+  $scope.favorites = FavoriteFactory.query();
+  // window.debug = $scope.favorites;
 
   //delete favorite
   $scope.deleteFavorite = function (favorite){
-    Favorite.delete({id: favorite._id });
+    Favorite.delete({id: favorite.id });
     var index = $scope.favorites.indexOf(favorite);
     $scope.favorites.splice(index, 1);
   }
 
   // post a new favorite animal
   $scope.addFavorites = function () {
-    Favorite.save({animal_id: $stateParams.animalId}, $scope.favorite, function (favorite) {
-      $scope.favorites.push(favorite);
-      });
+    if (UserFactory.identity) {
+      Favorite.save({animal_id: $stateParams.animalId}, $scope.favorite, function (favorite) {
+        $scope.favorites.push(favorite);
+        });
+      } else {
+      $scope.alert = true
     }
+  }
+
+  //   window.twttr = (function(d, s, id) {
+  //   var js, fjs = d.getElementsByTagName(s)[0],
+  //   t = window.twttr || {};
+  //   if (d.getElementById(id)) return t;
+  //     js = d.createElement(s);
+  //     js.id = id;
+  //     js.src = "https://platform.twitter.com/widgets.js";
+  //     fjs.parentNode.insertBefore(js, fjs);
+
+  //     t._e = [];
+  //     t.ready = function(f) {
+  //       t._e.push(f);
+  //     };
+  //   return t;
+  // }(document, "script", "twitter-wjs"));
 
 }])

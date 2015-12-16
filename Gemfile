@@ -14,6 +14,9 @@ gem 'devise_token_auth'
 gem 'omniauth'
 gem 'font-awesome-sass'
 gem 'masonry-rails'
+gem "paperclip", "~> 4.3"
+gem 'aws-sdk', '~> 1.6'
+# gem 'angular_rails_csrf'
 
 group :development, :test do
   gem 'byebug'

@@ -1,37 +1,100 @@
-app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFactory', '$stateParams', function ($scope, $auth, $http, ShelterAnimalFactory, $stateParams){
-
+app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'ShelterAnimalFactory', '$stateParams', function (Upload, $scope, $auth, $http, ShelterAnimalFactory, $stateParams){
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
   $scope.shelterAnimal = {};
   var ShelterAnimals = ShelterAnimalFactory;
 
   //show animals that belong to one shelter
   $scope.shelterAnimals = ShelterAnimals.query({shelterId:$stateParams.shelterId})
 
+  $scope.displayEditButtons = function () {
+    $scope.editing = true;
+  }
+  $scope.displayAddButton = function () {
+    $scope.editing = false;
+  }
+
   //delete an animal from a shelter
   $scope.deleteAnimal = function (id){
-    ShelterAnimals.delete({shelterId: $stateParams.shelterId, id: id });
-    var index = $scope.shelterAnimals.indexOf(id);
-    $scope.shelterAnimals.splice(index, 1);
+    ShelterAnimals.delete({shelterId: $stateParams.shelterId, id: id }, function (resp) {
+      console.log(resp);
+      var index = $scope.shelterAnimals.indexOf(id);
+      $scope.shelterAnimals.splice(index, 1);
+    }, function (resp) {
+      console.log(resp);
+    });
   }
 
   // fill the form to edit an animal
   $scope.editAnimal = function(animal){
-    // console.log(animal)
     $scope.shelterAnimal = animal;
+    console.log(animal)
   }
 
   // post a new animal
-  $scope.addAnimal = function (id) {
+  $scope.updateAnimal = function () {
+    var id = $scope.shelterAnimal.id;
+    console.log('UPDATE STARTED!! --> id: ', id);;
+    console.log($scope.avatar);;
+
+    ShelterAnimals
+      .update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal,
+        function (resp) {
+          console.log('Animal updated', resp);
+
+          debugger
+
+          Upload
+            .upload({
+              url: url + '/api/shelters/' + $scope.shelterAnimal.shelter_id + '/animals/' + $scope.shelterAnimal.id,
+              data: {animal: {avatar: file}},
+              method: 'PUT',
+            })
+            .then(function (resp) {
+              console.log("-----------------resp-------------->");
+              console.log(resp);
+              $scope.shelterAnimal = {};
+            }, function (resp) {
+              console.log('Error status: ' + resp.status);
+            }, function (evt) {
+              var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+              // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+            });
+
+        }, function (resp) {
+          console.log(resp);
+        }
+      );
+  }
+
+
+  $scope.addAnimal = function () {
+    ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
+      console.log(shelterAnimal);
+      $scope.shelterAnimals.push(shelterAnimal);
+      // $scope.shelterAnimal = {};
+    }, function (resp) {
+      console.log(resp);
+    });
+  }
+
+  $scope.formSubmit = function () {
+    // If we have an id, let's edit
     if ($scope.shelterAnimal.id) {
-      var id = $scope.shelterAnimal.id;
-      ShelterAnimals.update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal, function () {
-        $scope.shelterAnimal = {};
-        console.log('animal updated');
-      })
+      $scope.updateAnimal()
     } else {
-      ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
-        $scope.shelterAnimals.push(shelterAnimal);
-        $scope.shelterAnimal = {};
-      });
+      $scope.addAnimal()
     }
   }
+
+  // $scope.uploadFiles = function(file, errFiles) {
+  //   $scope.f = file;
+  //   $scope.errFile = errFiles && errFiles[0];
+  //   if (file) {
+  //     file.upload = Upload.upload({
+  //       url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+  //       data: {file: file}
+  //     });
+  //   }
+  // }
+
 }])

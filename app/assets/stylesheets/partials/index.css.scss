@@ -1,0 +1,48 @@
+div.ng-scope {
+  color: #5a5255;
+}
+
+h3 > a {
+  text-decoration: none;
+  color: #5a5255;
+}
+
+h3 > a:hover {
+  text-decoration: none;
+  color: #559e83;
+}
+
+#favorites {
+  .favorite-animals {
+    flex-wrap: wrap;
+    display: flex;
+  }
+}
+
+div.animal-card {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#animal-index {
+  #search-form {
+    background-color: rgba(195, 203, 113, 0.5);
+    color: #fff;
+    border-radius: 40px;
+  }
+
+  select.form-control{
+    color: #5a5255;
+  }
+
+  button.btn-outline {
+    background-color: rgba(27, 133, 184, 0.1);
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+
+  button.btn-outline:hover {
+    color: white;
+    background-color: rgba(27, 133, 184, 0.8);
+  }
+}

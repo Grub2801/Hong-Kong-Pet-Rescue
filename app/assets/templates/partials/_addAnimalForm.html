@@ -1,5 +1,5 @@
 <div id="post-animal" class="container well">
-  <form name="newAnimal" ng-submit="addAnimal()">
+  <form name="newAnimal" ng-submit="formSubmit()" enctype='multipart/form-data'>
     <div>
       <label>Name</label>
       <input type="text" name="name" ng-model="shelterAnimal.name">
@@ -9,7 +9,7 @@
       <select name="specie" ng-model="shelterAnimal.specie">
         <option>dog</option>
         <option>cat</option>
-        <option>reptile & fish</option>
+        <option>reptile &amp; fish</option>
         <option>rabbit</option>
         <option>rodent</option>
       </select>
@@ -18,10 +18,16 @@
       <label>Breed</label>
       <input type="text" name="breed" ng-model="shelterAnimal.breed">
     </div>
-    <div>
+    <div class="form-group">
+      <label>Photo attachment</label>
+      <input class="button" type="file" ng-model="file" name="file" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="10MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}"> Select
+    </div>
+
+    <img ngf-thumbnail="avatar" class="thumb">
+<!--     <div>
       <label>Photo</label>
       <input type="text" name="photo_url" ng-model="shelterAnimal.photo_url">
-    </div>
+    </div> -->
     <div>
       <label>Sex</label>
       <select name="sex" ng-model="shelterAnimal.sex">
@@ -55,9 +61,9 @@
       </select>
     </div>
     <div>
-      <input ng-hide="editing" class="btn btn-add" type="submit" value="Add animal">
-      <input ng-show="editing" ng-click="editing = false" class="btn btn-save" type="submit" value="Save">
-      <input ng-show="editing" class="btn btn-cancel" type="submit" value="Cancel">
+      <input ng-hide="editing" class="btn btn-add"    type="submit" value="Add animal">
+      <input ng-show="editing" class="btn btn-save"   type="submit" value="Save"   ng-click="displayAddButton();">
+      <input ng-show="editing" class="btn btn-cancel" type="submit" value="Cancel" ng-click="displayAddButton()">
     </div>
   </form>
 </div>

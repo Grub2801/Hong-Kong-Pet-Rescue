@@ -1,0 +1,44 @@
+app.controller('AnimalCtrl', ['$scope', '$auth', '$http', 'AnimalFactory', '$stateParams', '$state', function ($scope, $auth, $http, AnimalFactory, $stateParams, $state){
+  var AnimalList = AnimalFactory;
+
+
+  if ($state.current.name == "animal") { // index
+    $scope.animals = AnimalList.query();
+    $scope.animal_icon = function (animal) {
+      if (animal.specie == "dog") {
+        return "<%= asset_path('images/dog.png') %>";
+      } if (animal.specie == "cat") {
+        return "<%= asset_path('images/cat.svg') %>";
+      } if (animal.specie == "rodent") {
+        return "<%= asset_path('images/rodent.gif') %>";
+      } if (animal.specie == "rabbit") {
+        return "<%= asset_path('images/rabbit.png') %>";
+      } if (animal.specie == "fish & reptile") {
+        return "<%= asset_path('images/turtle.png') %>";
+      } else {
+        return "<%= asset_path('images/pet.jpg') %>";
+      }
+    }
+  } else { // show
+    $scope.animal = AnimalList.get({id: $stateParams.animalId})
+  }
+
+
+  window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+    return t;
+  }(document, "script", "twitter-wjs"));
+
+
+}]);
