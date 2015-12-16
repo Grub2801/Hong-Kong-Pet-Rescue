@@ -1,9 +1,14 @@
-var app = angular.module('animalRescue', ['ngResource', 'ui.router', 'ng-token-auth'])
+var app = angular.module('animalRescue', ['ngFileUpload', 'ngResource', 'ui.router', 'ng-token-auth'])
 
 app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
   function ($stateProvider, $urlRouterProvider, $authProvider){
 
   $stateProvider
+    .state('about', {
+      url: '/about',
+      templateUrl: "<%= asset_path('static_pages/about.html') %>",
+      controller: 'AnimalCtrl'
+    })
     .state('animal', {
       url: '/animals',
       templateUrl: "<%= asset_path('animals/index.html') %>",

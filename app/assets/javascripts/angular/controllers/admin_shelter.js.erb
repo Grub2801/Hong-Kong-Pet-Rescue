@@ -1,5 +1,5 @@
-app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFactory', '$stateParams', function ($scope, $auth, $http, ShelterAnimalFactory, $stateParams){
-
+app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'ShelterAnimalFactory', '$stateParams', function (Upload, $scope, $auth, $http, ShelterAnimalFactory, $stateParams){
+  var url = "<%= ENV['URL'] %>" || "http://localhost:3000";
   $scope.shelterAnimal = {};
   var ShelterAnimals = ShelterAnimalFactory;
 
@@ -27,6 +27,7 @@ app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFa
   // fill the form to edit an animal
   $scope.editAnimal = function(animal){
     $scope.shelterAnimal = animal;
+    console.log(animal)
   }
 
   // post a new animal
@@ -49,4 +50,36 @@ app.controller('AdminShelterCtrl', ['$scope', '$auth', '$http', 'ShelterAnimalFa
       });
     }
   }
+
+  // $scope.uploadFiles = function(file, errFiles) {
+  //   $scope.f = file;
+  //   $scope.errFile = errFiles && errFiles[0];
+  //   if (file) {
+  //     file.upload = Upload.upload({
+  //       url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
+  //       data: {file: file}
+  //     });
+  //   }
+  // }
+
+  // upload later on form submit or something similar
+  $scope.submit = function() {
+   Upload.upload({
+        url: url + '/api/shelters/' + $scope.shelterAnimal.shelter_id + '/animals/' + $scope.shelterAnimal.id,
+        data: {file: $scope.shelterAnimal.avatar},
+        method: 'PUT'
+      }).then(function (resp) {
+        console.log(resp);
+      }, function (resp) {
+        console.log('Error status: ' + resp.status);
+      }, function (evt) {
+        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+        // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+      });
+  };
+
+  // upload on file select or drop
+  $scope.upload = function () {
+
+  };
 }])

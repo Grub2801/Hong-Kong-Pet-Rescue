@@ -4,7 +4,7 @@ module Api
     before_action :set_favorite, only: [:destroy]
 
     def index
-      render json: current_user.animals
+      @favorites = current_user.favorites
     end
 
     def create

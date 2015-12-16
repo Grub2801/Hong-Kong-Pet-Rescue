@@ -1,7 +1,9 @@
-<h1>Wellcome to your favorites {{user.email}}</h1>
-
-<div ng-repeat="favorite in favorites">
-  <h1>{{favorite.name}}</h1>
-  <!-- <div>{{favorite}}</div> -->
-  <a ng-click="deleteFavorite(favorite)">delete</a>
+<div class="container">
+  <h1>Wellcome to your favorites {{user.email}}</h1>
+  <div ng-repeat="favorite in favorites">
+    <h1>{{favorite.animal_name}}</h1>
+    <h4>{{favorite.animal_specie}}</h4>
+    <h4>{{favorite.animal_location}}</h4>
+    <a ng-click="deleteFavorite(favorite)">delete</a>
+  </div>
 </div>
