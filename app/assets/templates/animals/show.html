@@ -3,11 +3,11 @@
   <h1>My name is {{animal.name | capitalize:true}}</h1>
   <img ng-src="{{animal.avatar}}" width="300" class="img-responsive">
   <h3>Facts about {{animal.name | capitalize:true}}</h3>
-  <h5>Breed: {{animal.breed | capitalize:true}}</h5>
-  <h5>Color: {{animal.color | capitalize:true}}</h5>
-  <h5>Age: {{animal.age | capitalize:true}}</h5>
-  <h5>Sex: {{animal.sex | capitalize:true}}</h5>
-  <h5>Size: {{animal.size | capitalize:true}}</h5>
+  <h5>Breed: {{animal.breed ? animal.breed : "unknown" }}</h5>
+  <h5>Color: {{animal.color ? animal.color : "unknown" ; }}</h5>
+  <h5>Age: {{animal.age ? animal.age : "unknown" ; }}</h5>
+  <h5>Sex: {{animal.sex ? animal.sex : "unknown" ;}}</h5>
+  <h5>Size: {{animal.size ? animal.size : "unknown" ;}}</h5>
   <h5>{{animal.note | capitalize}}</h5>
   <add-favorite></add-favorite>
   <address><h3><a href="mailto:{{animal.shelter_email}}"><i class="fa fa-envelope"></a></i> Ask about me</h3></address>

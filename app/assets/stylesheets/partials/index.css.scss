@@ -3,6 +3,28 @@
     flex-wrap: wrap;
     display: flex;
   }
+  .img-container {
+    img {
+      display: block;
+      width: auto;
+      height: 253px;
+      margin: 0 auto;
+    }
+  }
+  div#favorite-card {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  overflow: hidden;
+  height: 400px;
+  margin-top: 30px;
+}
+
+div#favorite-card:hover {
+  background-color: rgba(195, 203, 113, 0.3);
+}
 }
 
 div.ng-scope {
@@ -28,16 +50,6 @@ div.animal-card {
   div.ng-scope {
   color: #5a5255;
   text-transform: capitalize;
-  }
-
-  #search-form {
-    // background-color: rgba(195, 203, 113, 0.5);
-    // color: #fff;
-    // border-radius: 40px;
-
-  // #card {
-  //   overflow: hidden;
-  //   height: 355px;
   }
 }
 
