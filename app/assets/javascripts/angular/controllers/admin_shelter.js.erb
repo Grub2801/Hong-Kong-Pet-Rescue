@@ -33,13 +33,13 @@ app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'Shelt
   // post a new animal
   $scope.updateAnimal = function () {
     var id = $scope.shelterAnimal.id;
-    console.log('UPDATE STARTED!! --> id: ', id);;
     console.log($scope.avatar);;
 
     ShelterAnimals
       .update({shelterId: $stateParams.shelterId, id: id}, $scope.shelterAnimal,
         function (resp) {
           console.log('Animal updated', resp);
+          $scope.shelterAnimal= {}
 
           // Upload
           //   .upload({
