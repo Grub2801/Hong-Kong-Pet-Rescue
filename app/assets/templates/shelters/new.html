@@ -10,7 +10,7 @@
   <div>
     <ul>
       <li ng-repeat="animal in shelterAnimals">
-        {{ animal.name }} | <span> {{ animal.specie }}</span>
+        <a href="/#/animals/{{animal.id}}"> {{ animal.name }}</a><span> | {{ animal.specie }}</span>
         <button class="btn btn-edit" ng-click="editAnimal(animal); displayEditButtons()">Edit</button>
         <button class="btn btn-delete" ng-click="deleteAnimal(animal.id)">X</button>
       </li>

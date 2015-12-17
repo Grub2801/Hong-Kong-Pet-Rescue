@@ -41,24 +41,22 @@ app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'Shelt
         function (resp) {
           console.log('Animal updated', resp);
 
-          debugger
-
-          Upload
-            .upload({
-              url: url + '/api/shelters/' + $scope.shelterAnimal.shelter_id + '/animals/' + $scope.shelterAnimal.id,
-              data: {animal: {avatar: file}},
-              method: 'PUT',
-            })
-            .then(function (resp) {
-              console.log("-----------------resp-------------->");
-              console.log(resp);
-              $scope.shelterAnimal = {};
-            }, function (resp) {
-              console.log('Error status: ' + resp.status);
-            }, function (evt) {
-              var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-              // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
-            });
+          // Upload
+          //   .upload({
+          //     url: url + '/api/shelters/' + $scope.shelterAnimal.shelter_id + '/animals/' + $scope.shelterAnimal.id,
+          //     data: {animal: {avatar: file}},
+          //     method: 'PUT',
+          //   })
+          //   .then(function (resp) {
+          //     console.log("-----------------resp-------------->");
+          //     console.log(resp);
+          //     $scope.shelterAnimal = {};
+          //   }, function (resp) {
+          //     console.log('Error status: ' + resp.status);
+          //   }, function (evt) {
+          //     var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
+          //     // console.log('progress: ' + progressPercentage + '% ' + evt.config.data.file.name);
+          //   });
 
         }, function (resp) {
           console.log(resp);
