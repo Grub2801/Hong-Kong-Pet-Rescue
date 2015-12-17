@@ -7,6 +7,7 @@ Shelter.destroy_all
       website: "http://www.hongkongdogrescue.com/",
       donation_info: "http://www.hongkongdogrescue.com/donate/",
       description: "HKDR was founded in 2003 for the specific purpose of saving dogs and puppies from the Hong Kong Government’s Agriculture, Fisheries and Conservation Department (AFCD) Animal Management Centres, where around 10,000 dogs and puppies are destroyed every year. ",
+      image: "http://www.hongkongdogrescue.com/wp-content/themes/theme46165-copy/images/logo.png",
       location: "hong kong",
       email: "hkdr@test.com",
       password: "12345678"
