@@ -1,5 +1,5 @@
 <ul>
   <li ng-repeat="animal in shelterAnimals">
-    <a href="/#/animals/{{animal.id}}"> {{ animal.name }} </a> | <span> {{ animal.specie }}</span>
+    <a href="/#/animals/{{animal.id}}"> {{ animal.name | capitalize:true}} </a> | <span> {{ animal.specie | capitalize:true}}</span>
   </li>
 </ul>
