@@ -6,7 +6,7 @@
     <div id="favorite-card" class="col-xs-12 col-sm-6 col-md-4 pull-left" ng-repeat="favorite in favorites">
       <div class="col-xs-8">
         <h3>{{favorite.animal_name | capitalize:true}}</h3>
-        <address><h3><a href="mailto:{{animal.shelter_email}}"><i class="fa fa-envelope"></a></i> Ask about me</h3></address>
+        <address><h3><a href="mailto:{{favorite.animal_shelter_email}}"><i class="fa fa-envelope"></a></i> Ask about me</h3></address>
       </div>
       <div class="col-xs-4">
         <h3 class="pull-right"><a ng-click="deleteFavorite(favorite)"><i class="fa fa-times"></a></i></h3>
