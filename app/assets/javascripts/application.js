@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require angular-masonry/angular-masonry.js
 //= require angular/angular
 //= require angular-resource/angular-resource.min
 //= require angular-ui-router/release/angular-ui-router

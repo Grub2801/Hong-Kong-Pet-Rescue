@@ -7,7 +7,6 @@
 
 div.ng-scope {
   color: #5a5255;
-  // text-transform: capitalize;
 }
 
 h3 > a {
@@ -25,13 +24,6 @@ div.animal-card {
   display: flex;
 }
 
-div.container.ng-scope > div.col-xs-12.animal-card > div > img {
-  width: 100%;
-  display: block;
-  overflow: hidden;
-  height: 100px;
-}
-
 #animal-index {
   div.ng-scope {
   color: #5a5255;
@@ -39,13 +31,24 @@ div.container.ng-scope > div.col-xs-12.animal-card > div > img {
   }
 
   #search-form {
-    background-color: rgba(195, 203, 113, 0.5);
-    color: #fff;
-    border-radius: 40px;
+    // background-color: rgba(195, 203, 113, 0.5);
+    // color: #fff;
+    // border-radius: 40px;
 
   // #card {
   //   overflow: hidden;
   //   height: 355px;
+  }
+}
+
+animal-index-card {
+  .img-container {
+    img {
+      display: block;
+      width: auto;
+      height: 253px;
+      margin: 0 auto;
+    }
   }
 }
 
@@ -66,7 +69,7 @@ div#card {
 }
 
 div#card:hover {
-  background-color: #eee;
+  background-color: rgba(195, 203, 113, 0.3);
 }
 
 select.form-control{
@@ -84,3 +87,20 @@ button.btn-outline:hover {
   background-color: rgba(27, 133, 184, 0.8);
 }
 
+.form-group.index-search {
+  width: 18%;
+  display: inline-block;
+  position: relative;
+}
+
+#shelter-index {
+  .form-group.shelter-search {
+    width: 20%;
+    display: inline-block;
+    position: relative;
+    input {
+      line-height: 27px;
+
+    }
+  }
+}

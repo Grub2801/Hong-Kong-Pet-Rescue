@@ -1,23 +1,25 @@
-<div class="container">
-  <form class="form-inline" role="form">
-  <div class="form-group">
+<div id="shelter-index" class="container">
+  <form align="center" class="form-inline" role="form">
+
+  <div class="form-group shelter-search">
     <label for="location">Location</label>
-    <select ng-model="location" class="form-control">
-      <option value="" >- Any -</option>
-      <option>hong kong</option>
-      <option>kowloon</option>
-      <option>new territories</option>
+    <select ng-model="location" class="dropdown form-control">
+      <option value="">Any</option>
+      <option value="hong kong">Hong Kong</option>
+      <option value="kowloon">Kowloon</option>
+      <option value="new territories">New Territories</option>
     </select>
   </div>
-  <div class="form-group">
+
+  <div class="form-group shelter-search">
     <label for="name">Name:</label>
-    <input type="text" ng-model="name">
+    <input placeholder="Shelter/Rescue name" type="text" ng-model="name">
   </div>
   </form>
 
   <div ng-repeat="shelter in allShelters | filter:location | filter:name">
-    <h1><a href="/#/shelters/{{shelter.id}}">{{shelter.name}}</a></h1>
-    <p>{{ shelter.location }}</p>
-    <p>{{ shelter.address }}</p>
+    <h3><a href="/#/shelters/{{shelter.id}}">{{shelter.name | capitalize:true}}</a></h3>
+    <h5>{{ shelter.address | capitalize:true}}</h5>
+    <h5>{{ shelter.location | capitalize:true}}</h5>
   </div>
 </div>

@@ -1,5 +1,6 @@
 <div id="animal-new" class="container">
-  <h1>Add a new animal:</h1>
+  <h1 ng-show="editing" align="center">Edit an animal</h1>
+  <h1 ng-hide="editing" align="center">Add an animal</h1>
   <add-animal-form></add-animal-form>
   <div>
     <shelter-title shelter="shelter" ></shelter-title>

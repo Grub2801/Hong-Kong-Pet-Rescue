@@ -1,6 +1,6 @@
-<div id="post-animal" class="container">
+<div class="container">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2 well contactform">
+        <div class="col-md-8 col-md-offset-2 well">
             <form  name="newAnimal" ng-submit="formSubmit()" enctype='multipart/form-data'>
                 <div class="col-md-6">
                     <label>Name</label>
@@ -79,10 +79,12 @@
 
                   <label>Notes:</label>
                   <textarea class="form-control input-lg" name="note" ng-model="shelterAnimal.note" rows="10"></textarea>
-                  <div>
-                    <input ng-hide="editing" class="pull-right btn btn-add"    type="submit" value="Add animal">
-                    <input ng-show="editing" class="pull-right btn btn-save"   type="submit" value="Save"   ng-click="displayAddButton();">
-                    <input ng-show="editing" class="pull-right btn btn-cancel" type="submit" value="Cancel" ng-click="displayAddButton()">
+                  <div class="animal-new-btns">
+                    <input ng-hide="editing" align="center" class="btn btn-add" type="submit" value="Add animal">
+
+                    <input ng-show="editing" align="center" class="btn btn-save" type="submit" value="Save" ng-click="displayAddButton();">
+
+                    <input ng-show="editing" align="center" class="btn btn-cancel" type="submit" value="Cancel" ng-click="displayAddButton()">
                   </div>
                 </div>
             </form>

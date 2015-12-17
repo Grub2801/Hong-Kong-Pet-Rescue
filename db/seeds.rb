@@ -37,7 +37,7 @@ Shelter.destroy_all
       address: "",
       phone: "93100744",
       website: "http://www.hkalleycatwatch.com/contact.html",
-      donation_info: "How to make a donation (english) http://www.hkalleycatwatch.com/howdona.html",
+      donation_info: "http://www.hkalleycatwatch.com/howdona.html",
       description: "HK Alley Cats Watch was founded in 1997. Privately funded, its sole aim was to help the plight of Hong Kong’s street cats.",
       image: "",
       location: "hong kong",

@@ -1,8 +1,5 @@
 <div id="animal-index" class="container">
-  <div>
-    <h2>Welcome {{user.email}}</h2>
-  </div>
-  <animal-search-form></animal-search-form>
+  <animal-search-form align="center"></animal-search-form>
   <div class="col-xs-12 animal-card">
     <div id="card" class="col-xs-12 col-sm-6 col-md-4 pull-left" ng-repeat="animal in animals | filter:{location: location} | filter:{specie: specie} | filter:{sex: sex} | filter:{age: age} | filter:{size: size} | orderBy:'-created_at'" >
       <animal-index-card animal="animal"></animal-index-card>

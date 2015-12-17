@@ -1,10 +1,18 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.well {
+    background-color: rgba(85, 158, 131, 0.4) !important;
+    border-radius: 40px !important;
+  }
+
+div.animal-new-btns {
+  padding-top: 18px;
+}
+
 #animal-new {
 
-  #post-animal {
-    // background-color: rgba(85, 158, 131, 0.4);
-    // color: #5a5255;
-    // border-radius: 40px;
-  }
 
   select.form-control{
     color: #5a5255;

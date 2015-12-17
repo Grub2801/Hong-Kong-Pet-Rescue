@@ -1,13 +1,13 @@
-<div class="container">
+<div id="shelter-show" class="container">
   <h5><a href="/#/shelters"><i class="fa fa-arrow-left">  Back</i></a></h5>
-  <h1>{{shelter.name}}</h1>
+  <h1>{{shelter.name | capitalize:true}}</h1>
   <img ng-src="{{shelter.image}}" width="300" class="img-responsive">
-  <h3>Address: {{shelter.address}}</h3>
-  <h5>Phone: {{shelter.phone}}</h5>
-  <h5>Email: {{shelter.email}}</h5>
+  <h5>Address: {{shelter.address | capitalize:true}}</h5>
+  <h5>Phone: {{shelter.phone ? shelter.phone : "not provided" ; }}</h5>
+  <h5>Email: <a href="{{shelter.email}}">{{shelter.email}}</a></h5>
   <h5>Website: <a href="{{shelter.website}}">{{shelter.website}}</a></h5>
   <h5>Description: {{shelter.description}}</h5>
-  <h5>Donate: <a href=""></a>{{shelter.donation_info}}</h5>
+  <h5>Donate: <a href="{{shelter.donation_info}}">{{shelter.donation_info}}</a></h5>
   <div>
     <h5><a ng-hide="show" ng-click="showAnimals()">View our animals</a></h5>
   </div>
