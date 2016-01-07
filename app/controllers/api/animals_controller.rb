@@ -1,6 +1,7 @@
 module Api
   class AnimalsController < ApplicationController
-    before_action :authenticate_shelter!, only: [:create, :udpate, :destroy]
+    before_action :authenticate_shelter!, only: [:destroy]
+    # before_action :authenticate_shelter!, only: [:create, :udpate, :destroy]
     before_action :set_shelter, only: [:create, :update, :destroy]
     before_action :set_shelter_animal, only: [:update, :destroy]
     # before_filter :process_params, only: [:create, :update]

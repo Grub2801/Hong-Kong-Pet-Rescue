@@ -7,9 +7,17 @@ app.factory('AnimalFactory', AnimalFactory)
   console.log(url);
 
   function AnimalFactory($resource) {
-   return $resource( url + '/api/animals/:id',
-     {id: '@_id'},
-     {'update': { method:'PUT' }}
-   );
-
+    return $resource( url + '/api/animals/:id',
+      {
+        id: '@_id'
+      },
+      {
+        'update': {
+          method:'PUT'
+        },
+        'get': {
+          method:'GET'
+        }
+      }
+    );
   }

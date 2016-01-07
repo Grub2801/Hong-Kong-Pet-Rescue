@@ -66,14 +66,26 @@ app.controller('AdminShelterCtrl', ['Upload', '$scope', '$auth', '$http', 'Shelt
 
 
   $scope.addAnimal = function () {
-    ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
-      console.log(shelterAnimal);
-      $scope.shelterAnimals.push(shelterAnimal);
-      $scope.shelterAnimal = {};
+    // console.log($http.defaults.paramSerializer($http.defaults.headers));
+    // console.log($scope.shelterAnimal);
+    // ShelterAnimals.save({shelterId: $stateParams.shelterId}, $scope.shelterAnimal, function (shelterAnimal) {
+    //   console.log(shelterAnimal);
+    //   $scope.shelterAnimals.push(shelterAnimal);
+    //   $scope.shelterAnimal = {};
+    // }, function (resp) {
+    //   console.log(resp);
+    // });
+    Upload.upload({
+        url: 'api/shelters/' + $stateParams.shelterId + '/animals',
+        data: {animal: $scope.shelterAnimal}
+    }).then(function (resp) {
+        console.log(resp);
     }, function (resp) {
-      console.log(resp);
+        console.log('Error status: ', resp);
     });
   }
+
+  console.log('test', $http.defaults)
 
   $scope.formSubmit = function () {
     // If we have an id, let's edit

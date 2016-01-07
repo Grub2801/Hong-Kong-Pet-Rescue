@@ -16,7 +16,8 @@ gem 'font-awesome-sass'
 gem 'masonry-rails'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '~> 1.6'
-# gem 'angular_rails_csrf'
+gem 'angular_rails_csrf'
+gem 'ng-rails-csrf'
 
 group :development, :test do
   gem 'byebug'

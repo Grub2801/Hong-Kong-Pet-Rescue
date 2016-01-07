@@ -17,6 +17,7 @@
 //= require angular-ui-router/release/angular-ui-router
 //= require ng-token-auth/dist/ng-token-auth
 //= require ng-file-upload/ng-file-upload.min
+//= require ng-rails-csrf
 //= require angular-cookie/angular-cookie
 //= require bootstrap/dist/js/bootstrap.min
 //= require_tree .
