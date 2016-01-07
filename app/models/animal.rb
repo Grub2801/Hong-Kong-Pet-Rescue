@@ -14,4 +14,9 @@ class Animal < ActiveRecord::Base
   validates :age,    inclusion: {in: [nil, 'baby', 'young', 'adult', 'senior']}
   validates :size,   inclusion: {in: [nil, 'small', 'medium', 'large']}
   validates :sex,    inclusion: {in: [nil, 'male', 'female']}
+
+  # before save format data....
+  # def format_data
+  #   self.specie.squish
+  # end
 end
