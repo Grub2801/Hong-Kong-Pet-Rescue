@@ -8,6 +8,8 @@
     "bootstrap": "~3.3.6",
     "angular-ui-router": "~0.2.15",
     "masonry": "~3.3.2",
-    "angular-resource": "~1.4.8"
+    "angular-resource": "~1.4.8",
+    "ng-file-upload": "~10.1.9",
+    "angular-masonry": "~0.14.1"
   }
 }

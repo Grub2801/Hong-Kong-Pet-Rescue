@@ -1,13 +1,42 @@
-var app = angular.module('animalRescue', ['ngResource', 'ui.router', 'ng-token-auth'])
+var app = angular.module('animalRescue', ['ngFileUpload', 'ngResource', 'ui.router', 'ng-token-auth'])
 
 app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
   function ($stateProvider, $urlRouterProvider, $authProvider){
 
   $stateProvider
+    .state('about', {
+      url: '/about',
+      templateUrl: "<%= asset_path('static_pages/about.html') %>",
+    })
     .state('animal', {
       url: '/animals',
-      templateUrl: "<%= asset_path('static_pages/index.html') %>",
-      controller: 'HomeCtrl'
+      templateUrl: "<%= asset_path('animals/index.html') %>",
+      controller: 'AnimalCtrl'
+    })
+    .state('details', {
+      url: '/animals/:animalId',
+      templateUrl: "<%= asset_path('animals/show.html') %>",
+      controller: 'AnimalCtrl'
+    })
+    .state('shelters', {
+      url: '/shelters',
+      templateUrl: "<%= asset_path('shelters/index.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelter', {
+      url: '/shelters/:shelterId',
+      templateUrl: "<%= asset_path('shelters/show.html') %>",
+      controller: 'ShelterCtrl'
+    })
+    .state('shelteranimal', {
+      url: '/shelters/:shelterId/animals',
+      templateUrl: "<%= asset_path('shelters/new.html') %>",
+      controller: 'AdminShelterCtrl'
+    })
+    .state('favorite' , {
+      url: '/favorites',
+      templateUrl: "<%= asset_path('favorites/index.html') %>",
+      controller: 'FavoriteCtrl'
     })
     .state('signup', {
       url: '/admin/signup',
@@ -19,26 +48,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
       templateUrl: "<%= asset_path('auth/login.html') %>",
       controller: 'LoginCtrl'
     })
-    .state('details', {
-      url: '/animals/:animalId',
-      templateUrl: "<%= asset_path('static_pages/animal_detail.html') %>",
-      controller: 'HomeCtrl'
-    })
-    .state('shelters', {
-      url: '/shelters',
-      templateUrl: "<%= asset_path('static_pages/shelters_index.html') %>",
-      controller: 'ShelterCtrl'
-    })
-    .state('shelter', {
-      url: '/shelters/:shelterId',
-      templateUrl: "<%= asset_path('static_pages/shelter_detail.html') %>",
-      controller: 'ShelterCtrl'
-    })
-    .state('shelteranimal', {
-      url: '/shelters/:shelterId/animals',
-      templateUrl: "<%= asset_path('static_pages/shelter_admin.html') %>",
-      controller: 'AdminShelterCtrl'
-    })
     .state('publicsignup', {
       url: '/signup',
       templateUrl: "<%= asset_path('auth/public_signup.html') %>",
@@ -48,11 +57,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
       url: '/login',
       templateUrl: "<%= asset_path('auth/public_login.html') %>",
       controller: 'LoginCtrl'
-    })
-    .state('favorite' , {
-      url: '/favorites',
-      templateUrl: "<%= asset_path('static_pages/favorites.html') %>",
-      controller: 'FavoriteCtrl'
     });
 
 
@@ -62,55 +66,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$authProvider',
 
     {
       default: { // user
-        apiUrl:                  "<%= ENV['URL'] %>" || "http://localhost:3000"
-        // tokenValidationPath:     '/auth/validate_token',
-        // signOutUrl:              '/auth/sign_out',
-        // emailRegistrationPath:   '/auth',
-        // accountUpdatePath:       '/auth',
-        // accountDeletePath:       '/auth',
-        // // confirmationSuccessUrl:  window.location.href,
-        // passwordResetPath:       '/auth/password',
-        // passwordUpdatePath:      '/auth/password',
-        // passwordResetSuccessUrl: window.location.href,
-        // emailSignInPath:         '/auth/sign_in',
-        // storage:                 'cookies',
-        // forceValidateToken:      false,
-        // validateOnPageLoad:      true,
-        // proxyIf:                 function() { return false; },
-        // proxyUrl:                '/proxy',
-        // omniauthWindowType:      'sameWindow',
-        // authProviderPaths: {
-        //   github:   '/auth/github',
-        //   facebook: '/auth/facebook',
-        //   google:   '/auth/google'
-        // },
-        // tokenFormat: {
-        //   "access-token": "{{ token }}",
-        //   "token-type":   "Bearer",
-        //   "client":       "{{ clientId }}",
-        //   "expiry":       "{{ expiry }}",
-        //   "uid":          "{{ uid }}"
-        // },
-        // cookieOps: {
-        //   path: "/",
-        //   expires: 9999,
-        //   expirationUnit: 'days',
-        //   secure: false,
-        //   domain: 'domain.com'
-        // },
-        // parseExpiry: function(headers) {
-        //   // convert from UTC ruby (seconds) to UTC js (milliseconds)
-        //   return (parseInt(headers['expiry']) * 1000) || null;
-        // },
-        // handleLoginResponse: function(response) {
-        //   return response.data;
-        // },
-        // handleAccountUpdateResponse: function(response) {
-        //   return response.data;
-        // },
-        // handleTokenValidationResponse: function(response) {
-        //   return response.data;
-        // }
+        apiUrl:                "<%= ENV['URL'] %>" || "http://localhost:3000"
       }
     },
     {

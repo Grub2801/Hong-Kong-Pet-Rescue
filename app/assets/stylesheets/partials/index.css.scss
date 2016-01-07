@@ -1,0 +1,118 @@
+#favorites {
+  .favorite-animals {
+    flex-wrap: wrap;
+    display: flex;
+  }
+  .img-container {
+    img {
+      display: block;
+      width: auto;
+      height: 253px;
+      margin: 0 auto;
+    }
+  }
+  div#favorite-card {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  overflow: hidden;
+  height: 400px;
+  margin-top: 30px;
+}
+
+div#favorite-card:hover {
+  background-color: rgba(195, 203, 113, 0.3);
+}
+}
+
+div.ng-scope {
+  color: #5a5255;
+}
+
+h3 > a {
+  text-decoration: none;
+  color: #5a5255;
+}
+
+h3 > a:hover {
+  text-decoration: none;
+  color: #559e83;
+}
+
+div.animal-card {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#animal-index {
+  div.ng-scope {
+  color: #5a5255;
+  text-transform: capitalize;
+  }
+}
+
+animal-index-card {
+  .img-container {
+    img {
+      display: block;
+      width: auto;
+      height: 253px;
+      margin: 0 auto;
+    }
+  }
+}
+
+img#icon {
+  margin-top: 20px;
+  width: 50px;
+}
+
+div#card {
+  position: relative;
+  display: block;
+  margin-bottom: .75rem;
+  background-color: #fff;
+  border-radius: .25rem;
+  overflow: hidden;
+  height: 400px;
+  margin-top: 30px;
+}
+
+div#card:hover {
+  background-color: rgba(195, 203, 113, 0.3);
+}
+
+select.form-control{
+  color: #5a5255;
+}
+
+button.btn-outline {
+  background-color: rgba(27, 133, 184, 0.1);
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+button.btn-outline:hover {
+  color: white;
+  background-color: rgba(27, 133, 184, 0.8);
+}
+
+.form-group.index-search {
+  width: 18%;
+  display: inline-block;
+  position: relative;
+}
+
+#shelter-index {
+  .form-group.shelter-search {
+    width: 20%;
+    display: inline-block;
+    position: relative;
+    input {
+      line-height: 27px;
+
+    }
+  }
+}

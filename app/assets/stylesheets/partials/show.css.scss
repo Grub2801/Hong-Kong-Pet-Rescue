@@ -1,0 +1,32 @@
+#animal-show {
+
+  .img-responsive {
+    margin: 15px auto;
+  }
+
+  img {
+    vertical-align: middle;
+    border-radius: 20px;
+  }
+
+  body {
+    color:  #5a5255 !important;
+  }
+
+  i.fa.fa-arrow-left {
+    color:  #5a5255;
+  }
+}
+
+
+#shelter-index {
+  h3 > a {
+    color: #1b85b8;
+  }
+  h3 > a:hover {
+    text-decoration: none;
+    color: #1b85b8;
+  }
+
+
+}

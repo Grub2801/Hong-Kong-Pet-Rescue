@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="animalRescue">
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
   <title>AnimalsApi</title>
   <%= stylesheet_link_tag    'application', media: 'all'%>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<main-nav-bar></main-nav-bar>
+<nav-bar></nav-bar>
 
 <div ui-view>
   <%= yield %>

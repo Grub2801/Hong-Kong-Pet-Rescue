@@ -4,6 +4,7 @@ class Shelter < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable
   include DeviseTokenAuth::Concerns::User
+
   has_many :animals
 
   before_validation :format_values

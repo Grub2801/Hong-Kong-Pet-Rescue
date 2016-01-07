@@ -1,0 +1,19 @@
+<div id="animal-new" class="container">
+  <h1 ng-show="editing" align="center">Edit an animal</h1>
+  <h1 ng-hide="editing" align="center">Add an animal</h1>
+  <add-animal-form></add-animal-form>
+  <div>
+    <shelter-title shelter="shelter" ></shelter-title>
+  </div>
+
+
+  <div>
+    <ul>
+      <li ng-repeat="animal in shelterAnimals">
+        <a href="/#/animals/{{animal.id}}"> {{ animal.name }}</a><span> | {{ animal.specie }}</span>
+        <button class="btn btn-edit" ng-click="editAnimal(animal); displayEditButtons()">Edit</button>
+        <button class="btn btn-delete" ng-click="deleteAnimal(animal.id)">X</button>
+      </li>
+    </ul>
+  </div>
+</div>

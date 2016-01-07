@@ -1,0 +1,85 @@
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.well {
+    background-color: rgba(85, 158, 131, 0.4) !important;
+    border-radius: 40px !important;
+  }
+
+div.animal-new-btns {
+  padding-top: 18px;
+}
+
+#animal-new {
+
+
+  select.form-control{
+    color: #5a5255;
+  }
+
+  input.btn-add {
+    background-color: rgba(85, 158, 131, 0.1);
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+
+  input.btn-add:hover {
+    color: white;
+    background-color: rgba(85, 158, 131, 0.8);
+  }
+
+  input.btn-save {
+    background-color: rgba(195, 203, 113, 0.1);
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+
+  input.btn-save:hover {
+    color: white;
+    background-color: rgba(195, 203, 113, 0.8);
+  }
+
+  input.btn-cancel {
+    background-color: rgba(27, 133, 184, 0.1);
+    border: 2px solid white;
+    border-radius: 20px;
+  }
+
+  input.btn-cancel:hover {
+    color: white;
+    background-color: rgba(27, 133, 184, 0.8);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+button.btn-edit {
+  background-color: rgba(85, 158, 131, 0.1);
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+button.btn-edit:hover {
+  color: white;
+  background-color: rgba(85, 158, 131, 0.8);
+}
+
+button.btn-delete {
+  background-color: rgba(27, 133, 184, 0.1);
+  border: 2px solid white;
+  border-radius: 20px;
+}
+
+button.btn-delete:hover {
+  color: white;
+  background-color: rgba(27, 133, 184, 0.8);
+}
+
+}
