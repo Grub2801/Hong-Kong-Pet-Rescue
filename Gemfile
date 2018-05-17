@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.4'
+gem 'rails'
 gem 'rails-api'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -13,10 +13,10 @@ gem 'bower'
 gem 'devise_token_auth'
 gem 'omniauth'
 gem 'font-awesome-sass'
-gem 'masonry-rails'
+# gem 'masonry-rails'
 gem "paperclip", "~> 4.3"
 gem 'aws-sdk', '~> 1.6'
-gem 'angular_rails_csrf'
+# gem 'angular_rails_csrf', '3.2.0'
 gem 'ng-rails-csrf'
 
 group :development, :test do
